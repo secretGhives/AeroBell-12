@@ -2,8 +2,8 @@
 
 $config['url']       = $_GET['url']; // url of html to grab
 $config['url'] = str_replace(" ", "+", $config['url']);
-$config['start_tag'] = '<PRE>'; // where you want to start grabbing
-$config['end_tag']   = "</PRE>"; // where you want to stop grabbing
+$config['start_tag'] = '<font face="Monospace,Courier" size="+1">'; // where you want to start grabbing
+$config['end_tag']   = "</font>"; // where you want to stop grabbing
 $config['show_tags'] = 1; // do you want the tags to be shown when you show the html? 1 = yes, 0 = no
 
 class grabber
