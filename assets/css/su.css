@@ -52,6 +52,7 @@ body {
 .tab-content > .active { display: block;}
 .fit {
 width: 472px;
+max-width: 33.3%;
 vertical-align: top;
 padding: 0;
 border: 0;
