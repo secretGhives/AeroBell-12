@@ -333,7 +333,7 @@
   $(function(){
 
     $('#rotation-check').change(function(){
-      var k = this.checked ? var flipTimer = setInterval( rotateTabs, 30000) : clearInterval(flipTimer);
+      var k = this.checked ? setInterval( rotateTabs, 30000) : clearInterval();
     });
 
     //var flipTimer = setInterval( rotateTabs, 30000);
