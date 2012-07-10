@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<title>AEROBELL Flight Board</title>
+
+	<link rel="stylesheet" href="assets/css/su.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.css">
+<!-- 	<link rel="stylesheet" href="assets/css/bootstrap.css"> -->
+
+	<!-- Libraries -->
+	<script src="assets/libs/jquery.js"></script>
+	<script src="assets/libs/bootstrap.js"></script>
+
+	<script src="assets/libs/clock.js"></script>
+
+
+<!-- LOADING SCRIPT STARTS -->
+<script>
+$(window).load(function(){
+  $("#loading").fadeOut(function(){
+    $(this).remove();
+    $('body').css('overflow', 'auto');
+  });
+  
+  //is it time for sexy video?
+	// var curTime = $("#clock").text();
+	// var vidStart = "18:00:00";
+	// var vidEnd = "20:00:00";
+	// if(curTime >= vidStart && curTime <= vidEnd){ 
+	// 	$("#advertisement").show();
+	// } else {
+	// 	$("#advertisement").hide();
+	// }
+    
+});
+
+
+//Function to switch tabs
+function rotateTabs()	{
+	console.log('rotated');
+	if ( $('#flights').hasClass("active") ) {
+	  $('#weather-link').tab('show');
+	} else {
+		$('#flights-link').tab('show');
+	}
+}
+
+</script>
+<style type = "text/css">
+  body{overflow: hidden;}
+  #loaderContainer {position: absolute; top:50%; left:50%;}
+  #loaderContent {width: 230px; text-align: center; height: 100px; margin: -50px auto 0 auto; margin-left: -115px; }
+  #loading {background-color: #fff; overflow:hidden; width:100%; height:100%; position: absolute; top: 0; left: 0; z-index: 9999;}
+</style> 
+<!-- LOADING SCRIPT END -->
+</head>
+
+<body>
+
+  <div id="loading"> 
+  <script type = "text/javascript"> 
+    document.write("<div id='loaderContainer'><p id='loaderContent'>" +
+                   "<img id='loadinggraphic' src='/assets/img/AFS_small.png' />" +
+                   "</p></div>");
+  </script> 
+  </div> 
+
+<ul id="flightTabs" class="nav nav-tabs">
+  <li class="active"><a id="flights-link" href="#flights" data-toggle="tab"><i class="icon-dashboard"></i></a></li>
+  <li class=""><a id="weather-link" href="#weather" data-toggle="tab"><i class="icon-cloud"></i></a></li>
+</ul>
+ 
+	<div id="myTabContent" class="tab-content">
+
+		<!-- FLIGHT BOARD TAB STARTS HERE -->
+	  <div class="tab-pane fade active in" id="flights">
+	  	<table id="flight-table" class="full b">
+	  		<thead>
+	  			<tr>
+	  				<th>status</th>
+	  				<th>aircraft</th>
+	  				<th>departure</th>
+	  				<th>arrival</th>
+	  				<th>pilot</th>
+	  				<th>copilot</th>
+	  				<th>pax</th>
+	  				<th>notes</th>
+	  			</tr>
+	  		</thead>
+	  		<tr class="departed">
+	  			<td class="first"><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-QWE</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">ASWAFFORD</label></td>
+	  			<td><label class="copilot">AKUZENKOV</label></td>
+	  			<td><label class="pax">2</label></td>
+	  			<td><label class="remarks">Expected wait 3+ hrs</label></td>
+	  		</tr>
+	  		<tr class="delayed">
+	  			<td class="first"><label class="status">delayed</label></td>
+	  			<td><label class="aircraft">TI-WER</label></td>
+	  			<td><label class="departure-time">09:00</label></td>
+	  			<td><label class="arrival-time">10:00</label></td>
+	  			<td><label class="pilot">ASWAFFORD</label></td>
+	  			<td><label class="copilot">AKUZENKOV</label></td>
+	  			<td><label class="pax">3</label></td>
+	  			<td><label class="remarks">n/a</label></td>
+	  		</tr>
+	  		
+	  		<tr class="pending">
+	  			<td class="first"><label class="status">pending</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">ASWAFFORD</label></td>
+	  			<td><label class="copilot">AKUZENKOV</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="on-time">
+	  			<td class="first"><label class="status">on-time</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">ASWAFFORD</label></td>
+	  			<td><label class="copilot">AKUZENKOV</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="arriving">
+	  			<td class="first"><label class="status">arriving</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">ASWAFFORD</label></td>
+	  			<td><label class="copilot">AKUZENKOV</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="canceled">
+	  			<td class="first"><label class="status">canceled</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">ASWAFFORD</label></td>
+	  			<td><label class="copilot">AKUZENKOV</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">NOT ENOUGH PILOTS</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td class="first"><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td class="first"><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td class="first"><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td class="first"><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td class="first"><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td class="first"><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td class="first"><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td class="first"><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td class="first"><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td class="first"><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+	  		
+	  		<tr class="view">
+	  			<td><label class="status">departed</label></td>
+	  			<td><label class="aircraft">TI-???</label></td>
+	  			<td><label class="departure-time">06:00</label></td>
+	  			<td><label class="arrival-time">12:00</label></td>
+	  			<td><label class="pilot">Pilots Name</label></td>
+	  			<td><label class="copilot">Copilots Name</label></td>
+	  			<td><label class="pax">99</label></td>
+	  			<td><label class="remarks">Requires wheelchair</label></td>
+	  		</tr>
+
+
+	  	</table>
+
+	  </div><!-- FLIGHT BOARD TAB ENDS HERE -->
+
+
+	  <!-- WEATHER TAB STARTS HERE -->
+	  <div class="tab-pane fade" id="weather">
+			<div id="weather-images">
+				<img src="http://images.intellicast.com/WxImages/CurrentWind/camer.jpg" class="fit" />
+				<img src="http://images.intellicast.com/WxImages/Winds/camer_day1.jpg" class="fit" />
+				<img src="http://images.intellicast.com/WxImages/CurrentConditions/camer.jpg" class="fit" />
+				<img src="http://www.imn.ac.cr/especial/SATVIS.GIF" class="fit" />
+				<img src="http://www.imn.ac.cr/especial/SATELITE.GIF" class="fit" />
+				<img src="http://images.intellicast.com/WxImages/Satellite/camer.jpg" class="fit" />
+				<img src="http://images.intellicast.com/WxImages/SatelliteLoop/hicbsat_None_anim.gif" class="fit" />
+				<img src="http://www.imn.ac.cr/especial/PavasRed.png" class="fit" />
+			</div>
+
+			<div id="weather-text">
+				<div id="weather-pad">
+					<div id="clock"></div>
+					<div id="localMetar" class="text-data">MRPV 092140Z 1000/1024 09013KT 9999 FEW035 SCT120 TX28/1018Z TN20/1011Z 
+					FM100000 10014KT CAVOK 
+					BECMG 1018/1020 07010KT 9999 FEW020TCU SCT030 
+					PROB30 
+					TEMPO 1021/1024 23004KT 8000 RA</div>
+					<div id="localTaf" class="text-data">MRPV 092140Z 1000/1024 09013KT 9999 FEW035 SCT120 TX28/1018Z TN20/1011Z 
+					FM100000 10014KT CAVOK 
+					BECMG 1018/1020 07010KT 9999 FEW020TCU SCT030 
+					PROB30 
+					TEMPO 1021/1024 23004KT 8000 RA
+					</div>
+					<div id="localNotam" class="text-data">No data available</div>
+				</div>
+	  	</div>
+	  </div><!-- WEATHER TAB ENDS HERE -->
+	</div>
+
+
+
+<!-- Plugins -->
+
+
+
+<!-- Application
+<script src="assets/libs/chosen-min.js"></script>
+<script src="app/fazzle.js"></script>
+<script src="app/modules/runway.js"></script>
+	<script src="assets/libs/underscore.js"></script>
+	<script src="assets/libs/backbone.js"></script>
+-->
+
+<script>
+!function ($) {
+	$(function(){
+
+		var t = setInterval( rotateTabs, 30000);
+
+
+
+	})
+}(window.jQuery)
+</script>
+
+
+
+
+</body>
+</html>
+<!--// &#9734;  ☆ KUZYA.COM
+														 -~-%%%-,,
+													 ,%       ^2%
+													-ZZ2       22
+													-22%-,    .22
+ ~,2~ ,i,       qWE2      %qggp2222gggp2     .2Zg,          .- ,-
+ ,,222NEEBBggggg222%      -WWWWWqQWWWFBF     `?ZW\,,,,ggggggp2%==-"
+ ,,,ggBBBBBBBBBBBBgggg,   -222%2WB2^27Z^ ,ggggggBNBWBBBWBBBWB2s==~-
+	 ,ggBBBBBWWBBBWBWWBBBBgg,  %%JE@P  qggBBBBBBWWBWBWBWWWWBWWBE2"""`
+	 ``qBWWBBBBBWWBWNBWBBWBWBBm%%%%% .dWBWBBBWWWWBNWBBBBWWBWWWWE"""
+				`"WWWWBWHWBBBBEBWW"^ ,gggg,`/"WWWBWBWWBBWWNWBWBWWWWWF"^
+						""WBgdWW"""   ggWWWWWBWBgg, `"""""""W3EBWF"\
+							 ""F ~g  iqdWBBWBBNBWBWWWBr,   F -JWWW
+									 -7   "" ^^7@WWWWW/"7"-"\  ^
+															3H@ZES
+															 3@EP`
+																22,
+																LL/
+
+		┌────────────────────────────────────────────────────────┐
+		│ Date of Creation ..................Feb...... Year 2012 │
+		└────────────────────────────────────────────────────────┘
+//-->

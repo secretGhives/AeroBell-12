@@ -1,0 +1,182 @@
+<style type="text/css">
+    .container {
+      -webkit-perspective: 800px;
+         -moz-perspective: 800px;
+          -ms-perspective: 800px;
+           -o-perspective: 800px;
+              perspective: 800px;
+    }
+    
+    #slot-results figure {
+      width: 222px;
+      max-height: 222px;
+      -webkit-transition: -webkit-transform 0.3s;
+         -moz-transition: -moz-transform 0.3s;
+          -ms-transition: -ms-transform 0.3s;
+           -o-transition: -o-transform 0.3s;
+              transition: transform 0.3s;
+      -webkit-transform-style: preserve-3d;
+         -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+           -o-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+      -webkit-transform-origin: right center;
+         -moz-transform-origin: right center;
+          -ms-transform-origin: right center;
+           -o-transform-origin: right center;
+              transform-origin: right center;
+    }
+    
+    #slot-results figure.flipped {
+      -webkit-transform: translateX( -100% ) rotateY( -180deg );
+         -moz-transform: translateX( -100% ) rotateY( -180deg );
+          -ms-transform: translateX( -100% ) rotateY( -180deg );
+           -o-transform: translateX( -100% ) rotateY( -180deg );
+              transform: translateX( -100% ) rotateY( -180deg );
+    }
+    
+    #slot-results figure img {
+      display: block;
+      text-align: center;
+      position: absolute;
+      -webkit-backface-visibility: hidden;
+         -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+           -o-backface-visibility: hidden;
+              backface-visibility: hidden;
+    }
+    
+    #slot-results figure .front { background: #fff; }
+    
+    #slot-results figure .back {
+      background: #f9f9f9;
+      -webkit-transform: rotateY( 180deg );
+         -moz-transform: rotateY( 180deg );
+          -ms-transform: rotateY( 180deg );
+           -o-transform: rotateY( 180deg );
+              transform: rotateY( 180deg );
+    }
+
+.navbar.navbar-fixed-top, #app-footer { display: none !important; }
+</style>
+
+
+<div id="slot-view" class="container">
+
+  <section id="slot-overview">
+    <div id="selecting-sex">
+      <b>I am a</b> 
+      <div class="btn-group inlined" data-toggle="buttons-radio">
+        <button class="btn">Girl</button>
+        <button class="btn">Boy</button>
+      </div>
+    </div>
+
+    <div id="selecting-category" class="ar">
+      <b>and I can't decide on what to wear with my</b>
+      <br/>
+      <div class="btn-group inlined" data-toggle="buttons-radio">
+        <button class="btn">Head</button>
+        <button class="btn">Torso</button>
+        <button class="btn">Legs</button>
+        <button class="btn">Feet</button>
+      </div>
+    </div>
+
+    <div id="item-drop-area" class="well">
+      <h1 id="txt-what">What</h1>
+      <span class="lead" id="txt-does">does my</span>
+
+      <p class="ac">Drop image here</p>
+
+      <h1 id="txt-match">match with<em>?</em></h1>
+      <button class="btn btn-primary btn-large" id="btn-slotme">Fazzle ME!</button>
+    </div>
+  </section>
+
+  <section id="slot-results" class="hide">
+
+    <h1 id="results-welcom">Congrats</h1>
+    <h3 id="results-det">we've got just a match for your</h3>
+    
+    <figure id="slot-r-head" class="slot-body">
+      <figcaption>head</figcaption>
+      <img src="//placehold.it/222x222/000000/ff0000" class="front" alt="Head">
+      <img src="//placehold.it/222x222" class="back" alt="Head 1">
+    </figure>
+
+    <figure id="slot-r-torso" class="slot-body">
+      <figcaption>torso</figcaption>
+      <img src="//placehold.it/222x222/000000/ff0000" class="front" alt="Head">
+      <img src="//placehold.it/222x222" class="back" alt="Head 1">
+    </figure>
+
+    <figure id="slot-r-accessories">
+      <figcaption>accessories</figcaption>
+      <img src="//placehold.it/222x222/000000/ff0000" class="front" alt="Head">
+      <img src="//placehold.it/222x222" class="back" alt="Head 1">
+    </figure>
+
+    <figure id="slot-r-belt" class="slot-body">
+      <figcaption>belt</figcaption>
+      <img src="//placehold.it/222x69/000000/ff0000" class="front" alt="Head">
+      <img src="//placehold.it/222x69" class="back" alt="Head 1">
+    </figure>
+
+    <figure id="slot-r-legs" class="slot-body">
+      <figcaption>legs</figcaption>
+      <img src="//placehold.it/222x222/000000/ff0000" class="front" alt="Head">
+      <img src="//placehold.it/222x222" class="back" alt="Head 1">
+    </figure>
+
+    <figure id="slot-r-feet" class="slot-body">
+      <figcaption>feet</figcaption>
+      <img src="//placehold.it/222x222/000000/ff0000" class="front" alt="Head">
+      <img src="//placehold.it/222x222" class="back" alt="Head 1">
+    </figure>
+
+    <div id="spin-btn-group">
+      <button id="spin-again" class="btn btn-large btn-success">SPIN!</button>
+      <button id="spin-back" class="btn btn-large">Go back</button>
+    </div>
+  </section>
+
+</div> <!-- /container -->
+
+<script>
+!function ($) {
+	$(function(){
+
+
+    $('#spin-again').click(function(e) {
+      e.preventDefault();
+      alert("Trr trr rrrr rrr");
+
+      $('#slot-results figure').each(function(i){
+        $(this).delay(i*222).fadeIn(222,function(){
+          $(this).toggleClass('flipped');
+        });
+      });
+
+      //$('#slot-results figure').toggleClass('flipped');
+    });
+
+
+    $("#slot-results").on("click", "img", function() {
+      $(this).parent().toggleClass("flipped");
+      console.log("did it");
+    });
+
+    $('#btn-slotme').click(function(e) {
+      e.preventDefault();
+      $('#slot-results').show('fast');
+    });
+
+    $('#spin-back').click(function(e) {
+      e.preventDefault();
+      $('#slot-results').hide('fast');
+    });
+
+	})
+}(window.jQuery)
+</script>

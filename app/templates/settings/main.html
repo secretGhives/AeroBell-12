@@ -1,0 +1,217 @@
+<div id="settings-view" class="container marge">
+
+	<!-- Masthead
+	================================================== -->
+	<header class="jumbotron subhead" id="overview">
+		<h1>Settings</h1>
+	</header>
+
+	<hr/>
+
+	<div class="row">
+		<!-- <h3>Other stuff</h3> -->
+		<div class="span3 sidebar tabs-left">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#settings-account" data-toggle="tab">Account</a></li>
+				<li class=""><a href="#settings-closet" data-toggle="tab">Closet</a></li>
+				<li class=""><a href="#settings-notifications" data-toggle="tab">Notifications</a></li>
+			</ul>
+		</div>
+
+		<div class="tab-content span9">
+
+			<!-- Account Tab -->
+			<div class="tab-pane active" id="settings-account">
+				<!-- <h4>Account</h4> -->
+				<form class="form-horizontal">
+					<fieldset>
+						<legend>account settings</legend>
+
+						<div class="control-group">
+							<div class="controls">
+								<a class="btn btn-danger large" data-toggle="modal" href="#modal-manage-password"><i class="iconic settings"></i> Change Password</a>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">Public profile</label>
+							<div class="controls">
+								<select class="medium chzn-select" multiple data-placeholder="Display only.." name="ps-profile" id="ps-profile">
+									<option>Public</option>
+									<option>Friends</option>
+									<option>Me</option>
+								</select>
+								<p class="help-block">Who gets to see the information in your profile?</p>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">My Closet</label>
+							<div class="controls">
+								<select class="medium chzn-select" multiple data-placeholder="Display only to.." name="ps-closet" id="ps-closet">
+									<option>Public</option>
+									<option>Friends</option>
+									<option>Me</option>
+								</select>
+								<p class="help-block">Who gets to see your closet?</p>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">My Buzz</label>
+							<div class="controls">
+								<select class="medium chzn-select" multiple data-placeholder="Show only to.." name="ps-buzz" id="ps-buzz">
+									<option>Public</option>
+									<option>Friends</option>
+									<option>Me</option>
+								</select>
+								<p class="help-block">Who gets to see your buzz?</p>
+							</div>
+						</div>
+
+						<hr/>
+
+						<h4>Linked accounts</h4>
+						Google+, Facebook, Twitter
+
+						<hr/>
+
+						<h4>Deactivate your account</h4>
+						<div class="control-group">
+							<label class="control-label" for="optionsCheckbox">Deactivate</label>
+							<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" id="optionsCheckbox" value="option1">
+									Check this box to "Deactivate" your profile.  (You'll still be able to log-in and modify your settings.)
+								</label>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+
+			<!-- Closet Tab -->
+			<div class="tab-pane" id="settings-closet">
+				<!-- <h4>Privacy</h4> -->
+				<form class="form-horizontal">
+					<fieldset>
+						<legend>closet settings</legend>
+
+						<div class="control-group">
+							<div class="controls">
+								<a class="btn btn-primary large" data-toggle="modal" href="#modal-manage-shelves"><i class="iconic settings"></i> Manage shelves</a>
+								<p class="help-block">Create and Modify existing shelves and sub-shelves</p>
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="optionsCheckboxList">Shelves</label>
+							<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList1" value="option1" checked>
+									Display shelf organizer when I like something.
+								</label>
+								<p class="help-block"><strong>Note:</strong> This is the box that appears when you "Like" something.</p>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+
+			<!-- Notifications Tab -->
+			<div class="tab-pane" id="settings-notifications">
+				<form class="form-horizontal">
+					<fieldset>
+						<legend>notifications settings</legend>
+
+						<div class="control-group">
+							<label class="control-label" for="optionsCheckboxList">Email me when</label>
+							<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList1" value="option1">
+									someone starts following me
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList2" value="option2">
+									someone I invited joins
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList3" value="option3">
+									my items were featured
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList3" value="option3">
+									someone comments on something I liked
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList3" value="option3">
+									someone mentions me
+								</label>
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="optionsCheckboxList">Web Notify me when</label>
+							<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList1" value="option1">
+									someone starts following me
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList2" value="option2">
+									someone I invited joins
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList3" value="option3">
+									my items were featured
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList3" value="option3">
+									someone comments on something I liked
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList3" value="option3">
+									someone mentions me
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList3" value="option3">
+									A friend follows someone
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList3" value="option3">
+									A friend follows a store
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList3" value="option3">
+									Someone liked any of my items
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList3" value="option3">
+									A friend posts a comment
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList3" value="option3">
+									I earn a trophy
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsCheckboxList3" value="option3">
+									A friend wins a trophy
+								</label>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div> <!-- /container -->
+<script>
+!function ($) {
+	$(function(){
+
+		$(".chzn-select").chosen().change(function(){
+			var filter = $(this).val();
+			alert('selected: ' + filter);
+		});
+
+	})
+}(window.jQuery)
+</script>

@@ -1,0 +1,96 @@
+<style>
+/* BECAUSE OF NEW BACKGROUND */
+body {
+background-image: -webkit-gradient(linear, left top, right top, from(#eee), color-stop(50%, #eee), color-stop(50%, #ddd), to(#ddd));
+background-image: -moz-linear-gradient(left, #eee, #eee 50%, #ddd 50%, #ddd);
+background-size: 2px;
+-webkit-background-size: 2px;
+-moz-background-size: 2px;
+}
+hr {border-bottom: 1px solid #DDD;}
+/* /BECAUSE OF NEW BACKGROUND */
+.navbar.navbar-fixed-top { display: none; }
+</style>
+
+<div id="page-register-suggest" class="container">
+
+	<hgroup id="top-welcome">
+		<h1 class="brand">fazzle<em class="ico-btn">R</em>me</h1>
+		<h2>Choose people to follow</h2>
+
+		<div class="alert alert-info">
+			<strong>Okay!</strong> Based on what you've selected on previous screen, we recommend that you follow these people, since they are the closest to the style you're into.
+		</div>
+	</hgroup>
+
+	<hr/>
+
+	<div class="register-actions ar">
+		<a href="#runway" class="btn btn-primary btn-large">Done</a>
+	</div>
+
+	<div id="reg-suggestions" class="well">
+		<ol id="profile-following-list" class="unstyled follow-list">		
+			<li class="follow-list-item">
+				<a href="#profile" class="url vcard">
+					<img src="//placehold.it/69x69" class="photo">
+					<strong class="nickname">username</strong>
+				</a>
+				<a href="#" class="follow-user-link">follow</a>
+				<ul class="latest-liked">
+					<li><a href="#closet/item"><img src="//placehold.it/111x111" alt=""></a></li>
+					<li><a href="#closet/item"><img src="//placehold.it/111x111" alt=""></a></li>
+					<li><a href="#closet/item"><img src="//placehold.it/111x111" alt=""></a></li>
+					<li><a href="#closet/item"><img src="//placehold.it/111x111" alt=""></a></li>
+				</ul>		
+			</li>
+
+			<li class="follow-list-item">
+				<a href="#profile" class="url vcard">
+					<img src="//placehold.it/69x69" class="photo">
+					<strong class="nickname">username</strong>
+				</a>
+				<a href="#" class="follow-user-link">follow</a>
+				<ul class="latest-liked">
+					<li><a href="#closet/item"><img src="//placehold.it/111x111" alt=""></a></li>
+					<li><a href="#closet/item"><img src="//placehold.it/111x111" alt=""></a></li>
+					<li><a href="#closet/item"><img src="//placehold.it/111x111" alt=""></a></li>
+					<li><a href="#closet/item"><img src="//placehold.it/111x111" alt=""></a></li>
+				</ul>		
+			</li>
+
+			<li class="follow-list-item">
+				<a href="#profile" class="url vcard">
+					<img src="//placehold.it/69x69" class="photo">
+					<strong class="nickname">username</strong>
+				</a>
+				<a href="#" class="follow-user-link">follow</a>
+				<ul class="latest-liked">
+					<li><a href="#closet/item"><img src="//placehold.it/111x111" alt=""></a></li>
+					<li><a href="#closet/item"><img src="//placehold.it/111x111" alt=""></a></li>
+					<li><a href="#closet/item"><img src="//placehold.it/111x111" alt=""></a></li>
+					<li><a href="#closet/item"><img src="//placehold.it/111x111" alt=""></a></li>
+				</ul>		
+			</li>
+		</ol>
+	</div>
+</div>
+
+<script>
+!function ($) {
+	$(function(){
+
+		$(".follow-user-link").toggle(
+			function(){
+				$(this).text("following").addClass("following active");
+				alert("You are now following Persons Name", "success");
+			}, 
+			function(){
+				$(this).text("follow").removeClass("following active");
+				alert("You are no longer following Persons Name", "error");
+			}
+		);
+
+	})
+}(window.jQuery)
+</script>

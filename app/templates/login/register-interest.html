@@ -1,0 +1,103 @@
+<style>
+/* BECAUSE OF NEW BACKGROUND */
+body {
+background-image: -webkit-gradient(linear, left top, right top, from(#eee), color-stop(50%, #eee), color-stop(50%, #ddd), to(#ddd));
+background-image: -moz-linear-gradient(left, #eee, #eee 50%, #ddd 50%, #ddd);
+background-size: 2px;
+-webkit-background-size: 2px;
+-moz-background-size: 2px;
+}
+hr {border-bottom: 1px solid #DDD;}
+/* /BECAUSE OF NEW BACKGROUND */
+.navbar.navbar-fixed-top { display: none; }
+</style>
+
+<div id="page-register-interest" class="container">
+
+	<hgroup id="top-welcome">
+		<h1 class="brand">fazzle<em class="ico-btn">R</em>me</h1>
+		<h2>Define your interests and fashion style</h2>
+
+		<div class="alert alert-info">
+			<strong>What's up?!</strong> In order to begin, we need to know what you like, and styles you're interested in.  Select as many items on this page as you like and assign them to either predefined categories(shelves) or created your own category(shelf).
+		</div>
+	</hgroup>
+
+	<hr/>
+
+	<div class="register-actions ar">
+		<a href="#register-suggest" class="btn btn-primary btn-large">Continue</a>
+		<a href="#runway">Skip to Runway</a>
+	</div>
+
+	<div id="reg-interest-selections" class="well rw-thumbnail-wrap">
+		<figure class="thumbnail">
+			<a href="#" class="rw-thumbnail">
+				<img src="http://placehold.it/294x294" alt="">
+			</a>
+			<div class="big-like-button-wrapper"><em>H</em><a href="#" class="btn like">Like</a></div>
+		</figure>
+
+		<figure class="thumbnail">
+			<a href="#" class="rw-thumbnail">
+				<img src="http://placehold.it/294x294" alt="">
+			</a>
+			<div class="big-like-button-wrapper"><em>H</em><a href="#" class="btn like">Like</a></div>
+		</figure>
+
+		<figure class="thumbnail">
+			<a href="#" class="rw-thumbnail">
+				<img src="http://placehold.it/294x294" alt="">
+			</a>
+			<div class="big-like-button-wrapper"><em>H</em><a href="#" class="btn like">Like</a></div>
+		</figure>
+
+		<figure class="thumbnail">
+			<a href="#" class="rw-thumbnail">
+				<img src="http://placehold.it/294x294" alt="">
+			</a>
+			<div class="big-like-button-wrapper"><em>H</em><a href="#" class="btn like">Like</a></div>
+		</figure>
+
+		<figure class="thumbnail">
+			<a href="#" class="rw-thumbnail">
+				<img src="http://placehold.it/294x294" alt="">
+			</a>
+			<div class="big-like-button-wrapper"><em>H</em><a href="#" class="btn like">Like</a></div>
+		</figure>
+
+		<figure class="thumbnail">
+			<a href="#" class="rw-thumbnail">
+				<img src="http://placehold.it/294x294" alt="">
+			</a>
+			<div class="big-like-button-wrapper"><em>H</em><a href="#" class="btn like">Like</a></div>
+		</figure>
+	</div>
+</div>
+
+<script>
+!function ($) {
+	$(function(){
+
+		$(".btn.like").toggle(
+			function(){
+				$(this).text("Dislike");
+				$(this).addClass("active btn-inverse").parent().addClass("active");
+				$(this).parent().parent().parent().addClass("liked");
+				$('#modal-shelves').modal('show');
+				$('<a href="#" class="btn like-edit">S</a>').click(function(e) {
+					e.preventDefault();
+					$('#modal-shelves').modal('show');
+				}).insertAfter( $(this) );
+			}, 
+			function(){
+				$(this).text("Like");
+				$(this).removeClass("active btn-inverse").parent().removeClass("active");
+				$(this).parent().parent().parent().removeClass("liked");
+				$(this).next('.like-edit').remove();
+			}
+		);
+
+	})
+}(window.jQuery)
+</script>

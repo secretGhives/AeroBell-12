@@ -1,0 +1,427 @@
+<div id="closet-view" class="container marge">
+
+	<!-- Masthead
+	================================================== -->
+	<header class="jumbotron subhead" id="overview">
+		<h1>Closet</h1>
+		<div class="subnav ar">
+
+			<div id="closet-controls" class="btn-toolbar page-controls">
+				<select id="closet-categories-filter" class="dropdown-menu chzn-select" multiple data-placeholder="Display only..">
+					<option value=".wishlist">Wishlist</option>
+					<option value=".shelf-head-asses">Head Assesories</option>
+					<option value=".shelf-head">Head</option>
+					<option value=".shelf-torso">Tops</option>
+					<option value=".shelf-bottoms">Bottoms</option>
+					<option value=".shelf-foot">Footing</option>
+					<option value=".shelf-6">Assesories</option>
+				</select>
+
+				<div class="btn-group">
+					<button id="btn-create-new-look" class="btn btn-primary">Create a look</button>
+					<button class="btn btn-danger disabled hide" id="closet-delete-shelf" rel="tip" title="Activate Delete option" disabled>Delete</button>
+					<button class="btn" id="closet-edit" rel="tip" title="Activate Edit option">Edit</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<hr/>
+
+	<section id="closet-shelves">
+
+		<!-- MAIN CLOSET CONTENT -->
+		<div class="accordion" id="closet-shelf-list">
+			<div class="accordion-group wishlist">
+				<a class="close hide" rel="tip" data-placement="left" title="delete this shelf">&times;</a>
+				<div class="accordion-heading">
+					<span class="label">32 items</span>
+					<a class="accordion-toggle closet-ei" contenteditable="false" data-toggle="collapse" data-parent="#accordion2" href="#shelfWishlist">
+						<em class="wish-heart">H</em>Wishlist
+					</a>
+				</div>
+				<div id="shelfWishlist" class="accordion-body collapse" style="height: 0px; ">
+					<div class="accordion-inner">
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+
+							<div class="accordion-sub-header">
+								<span class="label info">6 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">From Bill Bbq's shelf title 3</h2>
+							</div>
+							
+							<a href="#editing"><img draggable="true" src="http://placehold.it/222x222" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/222x222" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+
+							<hr class="separator-shelf"/>
+						</div>
+
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+
+							<div class="accordion-sub-header">
+								<span class="label info">4 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">from Franks Lastname shelf title 1</h2>
+							</div>
+
+							<a href="#editing"><img draggable="true" src="http://placehold.it/222x222" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/222x222" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-group shelf-head-asses">
+				<a class="close hide" rel="tip" data-placement="left" title="delete this shelf">&times;</a>
+				<div class="accordion-heading">
+					<span class="label">16 items</span>
+					<a class="accordion-toggle closet-ei" contenteditable="false" data-toggle="collapse" data-parent="#accordion2" href="#shelfOne">
+						Head Assessories drawer
+					</a>
+				</div>
+				<div id="shelfOne" class="accordion-body collapse" style="height: 0px; ">
+					<div class="accordion-inner">
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+							<div class="accordion-sub-header">
+								<span class="label info">6 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">Earings</h2>
+							</div>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<hr class="separator-shelf"/>
+						</div>
+
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+							<div class="accordion-sub-header">
+								<span class="label info">4 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">Glasses</h2>
+							</div>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<hr class="separator-shelf"/>
+						</div>
+
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+							<div class="accordion-sub-header">
+								<span class="label info">2 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">Teeth grill'e</h2>
+							</div>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<hr class="separator-shelf"/>
+						</div>
+
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+							<div class="accordion-sub-header">
+								<span class="label info">4 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">Wigs</h2>
+							</div>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-group shelf-head">
+				<a class="close hide" rel="tip" data-placement="left" title="delete this shelf">&times;</a>
+				<div class="accordion-heading">
+					<span class="label">6 items</span>
+					<a class="accordion-toggle closet-ei" contenteditable="false" data-toggle="collapse" data-parent="#accordion2" href="#shelfTwo">
+						Head drawer
+					</a>
+				</div>
+				<div id="shelfTwo" class="accordion-body collapse" style="height: 0px; ">
+					<div class="accordion-inner">
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+							<div class="accordion-sub-header">
+								<span class="label info">3 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">Baseball Caps</h2>
+							</div>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<hr class="separator-shelf"/>
+						</div>
+
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+							<div class="accordion-sub-header">
+								<span class="label info">4 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">Hip-Hop wannabe</h2>
+							</div>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<hr class="separator-shelf"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-group shelf-torso">
+				<a class="close hide" rel="tip" data-placement="left" title="delete this shelf">&times;</a>
+				<div class="accordion-heading">
+					<span class="label">4 items</span>
+					<a class="accordion-toggle closet-ei" contenteditable="false" data-toggle="collapse" data-parent="#accordion2" href="#shelfThree">
+						Tops drawer
+					</a>
+				</div>
+				<div id="shelfThree" class="accordion-body collapse" style="height: 0px; ">
+					<div class="accordion-inner">
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+							<div class="accordion-sub-header">
+								<span class="label info">3 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">V Tees</h2>
+							</div>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<hr class="separator-shelf"/>
+						</div>
+
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+							<div class="accordion-sub-header">
+								<span class="label info">4 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">Silky-cotton wife-beaters</h2>
+							</div>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<hr class="separator-shelf"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-group shelf-bottoms">
+				<a class="close hide" rel="tip" data-placement="left" title="delete this shelf">&times;</a>
+				<div class="accordion-heading">
+					<span class="label">2 items</span>
+					<a class="accordion-toggle closet-ei" contenteditable="false" data-toggle="collapse" data-parent="#accordion2" href="#shelfFour">
+						Bottoms drawer
+					</a>
+				</div>
+				<div id="shelfFour" class="accordion-body collapse" style="height: 0px; ">
+					<div class="accordion-inner">
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+							<div class="accordion-sub-header">
+								<span class="label info">3 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">Tuxedo pants</h2>
+							</div>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<hr class="separator-shelf"/>
+						</div>
+
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+							<div class="accordion-sub-header">
+								<span class="label info">4 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">Skirts</h2>
+							</div>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<hr class="separator-shelf"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-group shelf-foot">
+				<a class="close hide" rel="tip" data-placement="left" title="delete this shelf">&times;</a>
+				<div class="accordion-heading">
+					<span class="label">6 items</span>
+					<a class="accordion-toggle closet-ei" contenteditable="false" data-toggle="collapse" data-parent="#accordion2" href="#shelfFive">
+						Footwear drawer
+					</a>
+				</div>
+				<div id="shelfFive" class="accordion-body collapse" style="height: 0px; ">
+					<div class="accordion-inner">
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+							<div class="accordion-sub-header">
+								<span class="label info">3 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">Party shoes</h2>
+							</div>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<hr class="separator-shelf"/>
+						</div>
+
+						<div class="accordion-sub">
+							<a class="close hide" rel="tip" data-placement="left" title="delete this sub">&times;</a>
+							<div class="accordion-sub-header">
+								<span class="label info">4 items</span>
+								<h2 class="accordion-inner-title closet-ei" contenteditable="false">Sandals</h2>
+							</div>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<a href="#editing"><img draggable="true" src="http://placehold.it/120x120" /></a>
+							<hr class="separator-shelf"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- CREATE A LOOK -->
+	<section id="closet-create-look">
+		<div id="create-look-wrap">
+			<input type="text" id="create-look-name" placeholder="Name new look.."/>
+			<div id="create-look-dropzone" class="ac well droppable" rel="pop" data-content="Drop items from the right into this area. Click on the item to remove it.  Press Clear to empty entire box." data-original-title="Drag n Drop" data-placement="top"></div>
+			<a data-toggle="modal" href="#modal-shelves" class="btn btn-success"><i class="icon-plus"></i> Save</a>
+			<a class="btn btn-info" data-toggle="modal" href="#modal-share">Share</a>
+			<button class="btn" onclick="$('.droppable').html(''); alert('Cleared', 'success');">Clear</button>
+
+			<div class="alert alert-info">
+				<strong>Heads up!</strong> Drag and Drop items from your shelves into "Drop Zone".  Click on the item in the drop zone to remove it.  Name your look and press save.
+			</div>
+		</div>
+	</section>
+
+</div> <!-- /container -->
+<script>
+!function ($) {
+	$(function(){
+
+		//Toggle Create new look panel
+		$('#btn-create-new-look').toggle(function() {
+				$(this).addClass('active');
+				$('#closet-create-look').show();
+				$('#closet-view').addClass('sidebar');
+				alert("Create a look is Active. When finished press it again.")
+			}, function() {
+				$(this).removeClass('active');
+				$('#closet-create-look').hide();
+				$('#closet-view').removeClass('sidebar');
+		});
+
+
+		// $('.accordion-inner img').draggable({ revert: true });
+		// $( ".droppable" ).droppable({
+		// 	tolerance: 'touch',
+		// 	over: function() {
+		// 		$(this).removeClass('out').addClass('over');
+		// 	},
+		// 	out: function() {
+		// 		$(this).removeClass('over').addClass('out');
+		// 	},
+		// 	drop: function( event, ui ) {
+		// 		var answer = alert('Added xxxx to the Look', 'success');
+		// 		$( this ).addClass( "received" );
+		// 		$( "<img>" ).attr( "src", ui.draggable.attr("src") ).appendTo( this );
+		// 		//ui.draggable.remove();
+		// 	}
+		// });
+
+		// $("#closet-view .droppable").delegate("img", "click", function() {
+		// 	$(this).remove();
+		// 	alert('Item removed', 'success');
+		// });
+		
+
+		$('#closet-edit').toggle(function() {
+				$(this).addClass('active btn-success');
+				$(this).text('Save');
+				$('.closet-ei').addClass('editing').attr('contenteditable', 'true');
+				$('#closet-delete-shelf').removeAttr("disabled").removeClass("disabled hide");
+				$('.accordion-body').css({'height': 'auto'}).addClass('in');
+				alert("Editing closet");
+			}, function() {
+				$(this).removeClass('active btn-success');
+				$(this).text('Edit');
+				$('.closet-ei').removeClass('editing').attr('contenteditable', 'false');
+				$('#closet-delete-shelf').attr("disabled", "disabled").addClass("disabled hide");
+				$('.accordion-body').css({'height': '0px'}).removeClass('in');
+				alert("Finished editing");
+		});
+
+
+		//Delete individual shelves toggle
+		$('#closet-delete-shelf').toggle(function() {
+				$(this).addClass('active');
+				$(this).text('Finish');
+				$('.accordion-group .close').removeClass('hide');
+				$('#closet-edit').attr("disabled", "disabled").addClass("disabled");
+				alert("Delete shelves activated, click finish to re-enable Save");
+			}, function() {
+				$(this).removeClass('active');
+				$(this).text('Delete');
+				$('.accordion-group .close').addClass('hide');
+				$('#closet-edit').removeAttr("disabled").removeClass("disabled");
+		});
+		$('.accordion-group .close').click(function() {
+			$(this).parent().hide();
+			alert("Shelf deleted", "success");
+		});
+
+
+		$(".chzn-select").chosen().change(function(){
+			var filter = $(this).val();
+			var list = $('#closet-shelf-list');
+			//alert( filter );
+			$(list).find("div.accordion-group:not(" + filter + ")").addClass("hide");
+			$(list).find("div.accordion-group" + filter).removeClass("hide");
+			alert('selected: ' + filter, 'success');
+			if (filter === null) {
+				$(list).find("div.accordion-group").removeClass("hide");
+			}
+		});
+
+
+		// fix sub nav on scroll
+		var $win = $(window)
+			, $nav = $('.subnav')
+			, navTop = $('.subnav').length && $('.subnav').offset().top - 40
+			, isFixed = 0;
+		processScroll();
+		$win.on('scroll', processScroll);
+		function processScroll() {
+			var i, scrollTop = $win.scrollTop()
+			if (scrollTop >= navTop && !isFixed) {
+				isFixed = 1
+				$nav.addClass('subnav-fixed')
+			} else if (scrollTop <= navTop && isFixed) {
+				isFixed = 0
+				$nav.removeClass('subnav-fixed')
+			}
+		};
+
+
+	})
+}(window.jQuery)
+</script>

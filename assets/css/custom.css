@@ -1,0 +1,60 @@
+::-webkit-scrollbar {
+width: 13px;
+}
+
+::-webkit-scrollbar-track {
+background: #111;
+border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 3px;
+background: #666;
+}
+
+
+/* LOADING */
+.loading {
+z-index: 9999;
+position: fixed;
+background: #fff;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+text-align: center;
+vertical-align: super;
+}
+.loading span {
+position: absolute;
+top: 50%;
+left: 48%;
+background: transparent url(../img/loader.gif);
+height: 48px;
+width: 48px;
+text-indent: -9999px;
+}
+
+
+
+
+
+
+
+/* #Media Queries
+================================================== */
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {}
