@@ -321,18 +321,9 @@ function rotateTabs()	{
 			<div id="weather-text">
 				<div id="weather-pad">
 					<div id="clock"></div>
-					<div id="localMetar" class="text-data">MRPV 092140Z 1000/1024 09013KT 9999 FEW035 SCT120 TX28/1018Z TN20/1011Z 
-					FM100000 10014KT CAVOK 
-					BECMG 1018/1020 07010KT 9999 FEW020TCU SCT030 
-					PROB30 
-					TEMPO 1021/1024 23004KT 8000 RA</div>
-					<div id="localTaf" class="text-data">MRPV 092140Z 1000/1024 09013KT 9999 FEW035 SCT120 TX28/1018Z TN20/1011Z 
-					FM100000 10014KT CAVOK 
-					BECMG 1018/1020 07010KT 9999 FEW020TCU SCT030 
-					PROB30 
-					TEMPO 1021/1024 23004KT 8000 RA
-					</div>
-					<div id="localNotam" class="text-data">No data available</div>
+					<div id="localMetar" class="text-data">n/a</div>
+					<div id="localTaf" class="text-data">n/a</div>
+					<div id="localNotam" class="text-data">n/a</div>
 				</div>
 	  	</div>
 	  </div><!-- WEATHER TAB ENDS HERE -->
@@ -358,6 +349,21 @@ function rotateTabs()	{
 
 		var t = setInterval( rotateTabs, 30000);
 
+		//Get METAR
+		$("#localMetar").load("/assets/php/proxyWX.php?url=http://aviationweather.gov/adds/metars/index.php?station_ids=MRPV");
+
+		//Get TAF
+		$("#localTaf").load("/assets/php/proxy.php?url=http://aviationweather.gov/adds/tafs/index.php?station_ids=MRPV");
+
+		//Get MROC NOTAM
+		$.ajax({
+		type: "POST",
+		url: "/assets/php/proxyNotam.php?url=https://www.notams.jcs.mil/dinsQueryWeb/queryRetrievalMapAction.do",
+		data: {'retrieveLocId': "MROC"},
+		success: function(data) {
+			$('#localNotam').html(data);
+			}
+		});
 
 
 	})
