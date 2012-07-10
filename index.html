@@ -351,8 +351,8 @@ function rotateTabs()	{
 		var t = setInterval( rotateTabs, 30000);
 
 		//Get METAR
-		$("#localMetar").load("assets/php/proxy.php?icao=MRPV");
-		//$("#localMetar").load("assets/php/proxyWX.php?url=http://aviationweather.gov/adds/metars/index.php?station_ids=MRPV");
+		$("#localMetar").load("assets/php/metar.php?icao=MRPV");
+		$("#localTaf").load("assets/php/taf.php?icao=MRPV");
 
 		//Get MROC NOTAM
 		$.ajax({

@@ -1,9 +1,7 @@
 <?php
 
 $config['icao']       = $_GET['icao']; // url of html to grab
-
 $location = $_GET['icao'];
-
 get_metar($location);
 
 function get_metar($location) {
@@ -25,4 +23,5 @@ $fileName = "http://weather.noaa.gov/pub/data/observations/metar/stations/$locat
 	//echo "METAR FOR $location (Issued: $time UTC):<br>$metar";
 	echo "$metar";
 	}
+
 ?>
