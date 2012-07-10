@@ -135,6 +135,11 @@ border-right: 1px solid #E5E5E5;
 -moz-border-radius: 0;
 border-radius: 0;
 }
+#flightTabs .checkbox {
+padding-top: 11px;
+display: block;
+padding-left: 13px;
+}
 
 
 /* WEATHER TAB 
