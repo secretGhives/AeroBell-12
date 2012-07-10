@@ -24,6 +24,18 @@
       $('body').css('overflow', 'auto');
     });
   });
+
+  var flipInterval; 
+  function startFlip() {
+    flipInterval = setInterval( rotateTabs, 10000 );
+    console.log('started 10 second flip');
+  }
+  function stopFlip() {
+    clearInterval(flipInterval);
+    console.log('stopped flipping');
+  }
+
+
   //Function to switch tabs
   function rotateTabs() {
     //console.log('rotated');
@@ -333,7 +345,7 @@
   $(function(){
 
     $('#rotation-check').change(function(){
-      var k = this.checked ? setInterval( rotateTabs, 30000) : clearInterval();
+      var k = this.checked ? startFlip() : stopFlip();
     });
 
     //var flipTimer = setInterval( rotateTabs, 30000);
