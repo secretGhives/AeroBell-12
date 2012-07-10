@@ -7,7 +7,8 @@ $location = $_GET['icao'];
 get_metar($location);
 
 function get_metar($location) {
-$fileName = "http://weather.noaa.gov/pub/data/observations/metar/stations/$location.TXT";
+$fileName = "http://weather.noaa.gov/pub/data/observations/metar/decoded/$location.TXT";
+//$fileName = "http://weather.noaa.gov/pub/data/observations/metar/stations/$location.TXT";
 	$metar = '';
 	$fileData = @file($fileName) or die('METAR not available');
 	if ($fileData != false) {
@@ -21,6 +22,7 @@ $fileName = "http://weather.noaa.gov/pub/data/observations/metar/stations/$locat
 			}
 		$metar = trim(str_replace('  ', ' ', $metar));
 		}
-	echo "METAR FOR $location (Issued: $time UTC):<br>$metar";
+	//echo "METAR FOR $location (Issued: $time UTC):<br>$metar";
+	echo "$metar";
 	}
 ?>
