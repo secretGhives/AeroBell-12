@@ -1,63 +1,26 @@
 <?php
 
-$config['url']       = $_GET['url']; // url of html to grab
-$config['url'] = str_replace(" ", "+", $config['url']);
-$config['start_tag'] = '<PRE>'; // where you want to start grabbing
-$config['end_tag']   = "</PRE>"; // where you want to stop grabbing
-$config['show_tags'] = 1; // do you want the tags to be shown when you show the html? 1 = yes, 0 = no
+$config['icao']       = $_GET['icao']; // url of html to grab
 
-class grabber
-{
-	var $error = '';
-	var $html  = '';
+$location = $_GET['icao'];
 
-	function grabhtml( $url, $start, $end )
-	{
-		$file = file_get_contents( $url );
+get_metar($location);
 
-		if( $file )
-		{
-			if( preg_match_all( "#$start(.*?)$end#s", $file, $match ) )
-			{
-				$this->html = $match;
+function get_metar($location) {
+$fileName = "http://weather.noaa.gov/pub/data/observations/metar/stations/$location.TXT";
+	$metar = '';
+	$fileData = @file($fileName) or die('METAR not available');
+	if ($fileData != false) {
+		list($i, $date) = each($fileData);
+
+		$utc = strtotime(trim($date));
+		$time = date("D, F jS Y g:i A",$utc);
+
+		while (list($i, $line) = each($fileData)) {
+			$metar .= ' ' . trim($line);
 			}
-			else
-			{
-				$this->error = "<p style='text-align:center'>No data available</p>";
-			}
+		$metar = trim(str_replace('  ', ' ', $metar));
 		}
-		else
-		{
-			$this->error = "Site cannot be found!";
-		}
+	echo "METAR FOR $location (Issued: $time UTC):<br>$metar";
 	}
-
-	function strip( $html, $show, $start, $end )
-	{
-		if( !$show )
-		{
-			$html = str_replace( $start, "", $html );
-			$html = str_replace( $end, "", $html );
-
-			return $html;
-		}
-		else
-		{
-			return $html;
-		}
-	}
-}
-
-$grab = new grabber;
-$grab->grabhtml( $config['url'], $config['start_tag'], $config['end_tag'] );
-
-echo $grab->error;
-
-if ( !empty($grab->html) ) {
-	foreach( $grab->html[0] as $html )
-	{
-		echo $grab->strip( $html, $config['show_tags'], $config['start_tag'], $config['end_tag'] );
-	}
-}
-
 ?>
