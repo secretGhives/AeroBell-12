@@ -350,15 +350,15 @@ function rotateTabs()	{
 		var t = setInterval( rotateTabs, 30000);
 
 		//Get METAR
-		$("#localMetar").load("/assets/php/proxyWX.php?url=http://aviationweather.gov/adds/metars/index.php?station_ids=MRPV");
+		$("#localMetar").load("assets/php/proxyWX.php?url=http://aviationweather.gov/adds/metars/index.php?station_ids=MRPV");
 
 		//Get TAF
-		$("#localTaf").load("/assets/php/proxy.php?url=http://aviationweather.gov/adds/tafs/index.php?station_ids=MRPV");
+		$("#localTaf").load("assets/php/proxy.php?url=http://aviationweather.gov/adds/tafs/index.php?station_ids=MRPV");
 
 		//Get MROC NOTAM
 		$.ajax({
 		type: "POST",
-		url: "/assets/php/proxyNotam.php?url=https://www.notams.jcs.mil/dinsQueryWeb/queryRetrievalMapAction.do",
+		url: "assets/php/proxyNotam.php?url=https://www.notams.jcs.mil/dinsQueryWeb/queryRetrievalMapAction.do",
 		data: {'retrieveLocId': "MROC"},
 		success: function(data) {
 			$('#localNotam').html(data);
