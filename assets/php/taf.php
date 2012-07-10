@@ -2,7 +2,7 @@
 
 $config['icao']       = $_GET['icao']; // url of html to grab
 $location = $_GET['icao'];
-get_metar($location);
+get_taf($location);
 
 function get_taf($location) {
 $fileName = "ftp://tgftp.nws.noaa.gov/data/forecasts/taf/stations/$location.TXT";
