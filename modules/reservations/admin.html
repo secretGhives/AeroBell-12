@@ -5,16 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>AEROBELL Flight Board</title>
+  <title>AEROBELL Flight Board Administration</title>
 
   <link rel="stylesheet" href="../../assets/css/su.css">
   <link rel="stylesheet" href="../../assets/css/font-awesome.css">
-<!--  <link rel="stylesheet" href="../../assets/css/bootstrap.css"> -->
+  <link rel="stylesheet" href="../../assets/css/bootstrap.css">
 
   <!-- Libraries -->
   <script src="../../assets/libs/jquery.js"></script>
   <script src="../../assets/libs/bootstrap.js"></script>
-  <script src="../../assets/libs/clock.js"></script>
+  <script src="../../assets/libs/date.js"></script>
+  <script src="../../assets/libs/time.js"></script>
 
   <!-- LOADING SCRIPT STARTS -->
   <script>
@@ -24,15 +25,6 @@
       $('body').css('overflow', 'auto');
     });
   });
-  //Function to switch tabs
-  function rotateTabs() {
-    //console.log('rotated');
-    if ( $('#flights').hasClass("active") ) {
-      $('#weather-link').tab('show');
-    } else {
-      $('#flights-link').tab('show');
-    }
-  }
   </script>
   <style type = "text/css">
     body{overflow: hidden;}
@@ -48,275 +40,229 @@
   <div id="loading"> 
   <script type = "text/javascript"> 
     document.write("<div id='loaderContainer'><p id='loaderContent'>" +
-                   "<img id='loadinggraphic' src='assets/img/AFS_small.png' />" +
+                   "<img id='loadinggraphic' src='../../assets/img/AFS_small.png' />" +
                    "</p></div>");
   </script> 
   </div> 
 
-<ul id="flightTabs" class="nav nav-tabs">
-  <li class=""><a id="flights-link" href="#flights" data-toggle="tab"><i class="icon-dashboard"></i></a></li>
-  <li class=""><a id="weather-link" href="#weather" data-toggle="tab"><i class="icon-cloud"></i></a></li>
-</ul>
- 
-  <div id="myTabContent" class="tab-content">
+  <!-- ADMIN FLIGHT BOARD STARTS HERE -->
+  <div id="admin-flights">
+    <table id="admin-flight-table" class="full b">
+      <thead>
+        <tr>
+          <th><i class="icon-cogs"></i></th>
+          <th>status</th>
+          <th>aircraft</th>
+          <th>departure</th>
+          <th>arrival</th>
+          <th>pilot</th>
+          <th>copilot</th>
+          <th>pax</th>
+          <th>notes</th>
+        </tr>
+      </thead>
+      <tr class="departed">
+      	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
+        <td class="first">
+        	<select class="admin-flight-status input-small">
+	          <option selected>Departed</option>
+	          <option>Delayed</option>
+	          <option>Pending</option>
+	          <option>On-Time</option>
+	          <option>Arrived</option>
+	          <option>Canceled</option>
+	        </select>
+	      </td>
+        <td><label class="aircraft">TI-QWE</label></td>
+        <td><label class="departure-time">06:00</label></td>
+        <td><label class="arrival-time">12:00</label></td>
+        <td><label class="pilot">ASWAFFORD</label></td>
+        <td><label class="copilot">AKUZENKOV</label></td>
+        <td><label class="pax">2</label></td>
+        <td><label class="remarks">Expected wait 3+ hrs</label></td>
+      </tr>
 
-    <!-- FLIGHT BOARD TAB STARTS HERE -->
-    <div class="tab-pane fade active in" id="flights">
-      <table id="flight-table" class="full b">
-        <thead>
-          <tr>
-            <th>status</th>
-            <th>aircraft</th>
-            <th>departure</th>
-            <th>arrival</th>
-            <th>pilot</th>
-            <th>copilot</th>
-            <th>pax</th>
-            <th>notes</th>
-          </tr>
-        </thead>
-        <tr class="departed">
-          <td class="first"><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-QWE</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">ASWAFFORD</label></td>
-          <td><label class="copilot">AKUZENKOV</label></td>
-          <td><label class="pax">2</label></td>
-          <td><label class="remarks">Expected wait 3+ hrs</label></td>
-        </tr>
-        <tr class="delayed">
-          <td class="first"><label class="status">delayed</label></td>
-          <td><label class="aircraft">TI-WER</label></td>
-          <td><label class="departure-time">09:00</label></td>
-          <td><label class="arrival-time">10:00</label></td>
-          <td><label class="pilot">ASWAFFORD</label></td>
-          <td><label class="copilot">AKUZENKOV</label></td>
-          <td><label class="pax">3</label></td>
-          <td><label class="remarks">n/a</label></td>
-        </tr>
-        
-        <tr class="pending">
-          <td class="first"><label class="status">pending</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">ASWAFFORD</label></td>
-          <td><label class="copilot">AKUZENKOV</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="on-time">
-          <td class="first"><label class="status">on-time</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">ASWAFFORD</label></td>
-          <td><label class="copilot">AKUZENKOV</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="arriving">
-          <td class="first"><label class="status">arriving</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">ASWAFFORD</label></td>
-          <td><label class="copilot">AKUZENKOV</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="canceled">
-          <td class="first"><label class="status">canceled</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">ASWAFFORD</label></td>
-          <td><label class="copilot">AKUZENKOV</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">NOT ENOUGH PILOTS</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td class="first"><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td class="first"><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td class="first"><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td class="first"><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td class="first"><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td class="first"><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td class="first"><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td class="first"><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td class="first"><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td class="first"><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
-        
-        <tr class="view">
-          <td><label class="status">departed</label></td>
-          <td><label class="aircraft">TI-???</label></td>
-          <td><label class="departure-time">06:00</label></td>
-          <td><label class="arrival-time">12:00</label></td>
-          <td><label class="pilot">Pilots Name</label></td>
-          <td><label class="copilot">Copilots Name</label></td>
-          <td><label class="pax">99</label></td>
-          <td><label class="remarks">Requires wheelchair</label></td>
-        </tr>
+      <tr class="delayed">
+      	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
+        <td class="first">
+        	<select class="admin-flight-status input-small">
+	          <option>Departed</option>
+	          <option selected>Delayed</option>
+	          <option>Pending</option>
+	          <option>On-Time</option>
+	          <option>Arrived</option>
+	          <option>Canceled</option>
+	        </select>
+	      </td>
+        <td><label class="aircraft">TI-WER</label></td>
+        <td><label class="departure-time">09:00</label></td>
+        <td><label class="arrival-time">10:00</label></td>
+        <td><label class="pilot">ASWAFFORD</label></td>
+        <td><label class="copilot">AKUZENKOV</label></td>
+        <td><label class="pax">3</label></td>
+        <td><label class="remarks">n/a</label></td>
+      </tr>
+      
+      <tr class="pending">
+      	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
+        <td class="first">
+        	<select class="admin-flight-status input-small">
+	          <option>Departed</option>
+	          <option>Delayed</option>
+	          <option selected>Pending</option>
+	          <option>On-Time</option>
+	          <option>Arrived</option>
+	          <option>Canceled</option>
+	        </select>
+	      </td>
+        <td><label class="aircraft">TI-???</label></td>
+        <td><label class="departure-time">06:00</label></td>
+        <td><label class="arrival-time">12:00</label></td>
+        <td><label class="pilot">ASWAFFORD</label></td>
+        <td><label class="copilot">AKUZENKOV</label></td>
+        <td><label class="pax">99</label></td>
+        <td><label class="remarks">Requires wheelchair</label></td>
+      </tr>
+      
+      <tr class="on-time">
+      	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
+        <td class="first">
+        	<select class="admin-flight-status input-small">
+	          <option>Departed</option>
+	          <option>Delayed</option>
+	          <option>Pending</option>
+	          <option selected>On-Time</option>
+	          <option>Arrived</option>
+	          <option>Canceled</option>
+	        </select>
+	      </td>
+        <td><label class="aircraft">TI-???</label></td>
+        <td><label class="departure-time">06:00</label></td>
+        <td><label class="arrival-time">12:00</label></td>
+        <td><label class="pilot">ASWAFFORD</label></td>
+        <td><label class="copilot">AKUZENKOV</label></td>
+        <td><label class="pax">99</label></td>
+        <td><label class="remarks">Requires wheelchair</label></td>
+      </tr>
+      
+      <tr class="arriving">
+      	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
+        <td class="first">
+        	<select class="admin-flight-status input-small">
+	          <option>Departed</option>
+	          <option>Delayed</option>
+	          <option>Pending</option>
+	          <option>On-Time</option>
+	          <option selected>Arrived</option>
+	          <option>Canceled</option>
+	        </select>
+	      </td>
+        <td><label class="aircraft">TI-???</label></td>
+        <td><label class="departure-time">06:00</label></td>
+        <td><label class="arrival-time">12:00</label></td>
+        <td><label class="pilot">ASWAFFORD</label></td>
+        <td><label class="copilot">AKUZENKOV</label></td>
+        <td><label class="pax">99</label></td>
+        <td><label class="remarks">Requires wheelchair</label></td>
+      </tr>
+      
+      <tr class="canceled">
+      	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
+        <td class="first">
+        	<select class="admin-flight-status input-small">
+	          <option>Departed</option>
+	          <option>Delayed</option>
+	          <option>Pending</option>
+	          <option>On-Time</option>
+	          <option>Arrived</option>
+	          <option selected>Canceled</option>
+	        </select>
+	      </td>
+        <td><label class="aircraft">TI-???</label></td>
+        <td><label class="departure-time">06:00</label></td>
+        <td><label class="arrival-time">12:00</label></td>
+        <td><label class="pilot">ASWAFFORD</label></td>
+        <td><label class="copilot">AKUZENKOV</label></td>
+        <td><label class="pax">99</label></td>
+        <td><label class="remarks">NOT ENOUGH PILOTS</label></td>
+      </tr>
+    </table>
+  </div><!-- ADMIN FLIGHT BOARD ENDS HERE -->
 
+  <!-- ADMIN NEW FLIGHT FORM STARTS HERE -->
+  <div id="admin-new-flight">
+		<form class="form-vertical">
+		  <fieldset>
+		    <div class="control-group">
+		      <label class="control-label" for="nf-date">Date</label>
+		      <div class="controls">
+		        <input type="text" class="input-xlarge" id="nf-date" placeholder="Flight date">
+		      </div>
+		    </div>
 
-      </table>
+		    <div class="control-group">
+		      <label class="control-label" for="nf-aircraft">Aircraft</label>
+		      <div class="controls">
+		        <select id="nf-aircraft">
+		          <option>TI-QWE</option>
+		          <option>TI-WER</option>
+		          <option>TI-ERT</option>
+		          <option>TI-RTY</option>
+		          <option>TI-TYU</option>
+		        </select>
+		      </div>
+		    </div>
 
-    </div><!-- FLIGHT BOARD TAB ENDS HERE -->
+		    <div class="control-group">
+		      <label class="control-label" for="nf-date">Departure/Arrival</label>
+		      <div class="controls">
+		        <input type="text" class="input-small" id="nf-departure" placeholder="Depart">
+		        <input type="text" class="input-small" id="nf-arrival" placeholder="Arrive">
+		      </div>
+		    </div>
 
+		    <div class="control-group">
+		      <label class="control-label" for="nf-pilot">Pilot</label>
+		      <div class="controls">
+		        <input type="text" class="input-xlarge" id="nf-pilot" placeholder="Who is flying?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]">
+		      </div>
+		    </div>
 
-    <!-- WEATHER TAB STARTS HERE -->
-    <div class="tab-pane fade" id="weather">
-      <div id="weather-images">
-        <img src="http://images.intellicast.com/WxImages/CurrentWind/camer.jpg" class="fit" />
-        <img src="http://images.intellicast.com/WxImages/Winds/camer_day1.jpg" class="fit" />
-        <img src="http://images.intellicast.com/WxImages/CurrentConditions/camer.jpg" class="fit" />
-        <img src="http://www.imn.ac.cr/especial/SATVIS.GIF" class="fit" />
-        <img src="http://www.imn.ac.cr/especial/SATELITE.GIF" class="fit" />
-        <img src="http://images.intellicast.com/WxImages/Satellite/camer.jpg" class="fit" />
-        <img src="http://images.intellicast.com/WxImages/SatelliteLoop/hicbsat_None_anim.gif" class="fit" />
-        <img src="http://www.imn.ac.cr/especial/PavasRed.png" class="fit" />
-      </div>
+		    <div class="control-group">
+		      <label class="control-label" for="nf-pilot">Co-Pilot</label>
+		      <div class="controls">
+		        <input type="text" class="input-xlarge" id="nf-pilot" placeholder="Who is co-pilot?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]">
+		      </div>
+		    </div>
 
-      <div id="weather-text">
-        <div id="weather-pad">
-          <div id="clock"></div>
-          <div id="localMetar" class="text-data">n/a</div>
-          <div id="localTaf" class="text-data">n/a</div>
-          <div id="localNotam" class="text-data">n/a</div>
-        </div>
-      </div>
-    </div><!-- WEATHER TAB ENDS HERE -->
-  </div>
+		    <div class="control-group">
+		      <label class="control-label" for="nf-pax">Passengers</label>
+		      <div class="controls">
+		        <input type="number" class="input-medium" id="nf-pax" placeholder="How many?">
+		      </div>
+		    </div>
 
+		    <div class="control-group">
+		      <label class="control-label" for="nf-route">Route</label>
+		      <div class="controls">
+		        <input type="text" class="input-xlarge" id="nf-route" placeholder="MRPV-MROC-MRLB-MRLM-MRPV">
+		      </div>
+		    </div>
 
+		    <div class="control-group">
+		      <label class="control-label" for="textarea">Notes</label>
+		      <div class="controls">
+		        <textarea class="input-xlarge" id="textarea" rows="3" placeholder="Keep it short"></textarea>
+		      </div>
+		    </div>
 
-<!-- Plugins -->
-
+		    <div class="form-actions">
+		      <button type="submit" class="btn btn-primary">Save changes</button>
+		      <button class="btn">Cancel</button>
+		    </div>
+		  </fieldset>
+		</form>
+  </div><!-- ADMIN NEW FLIGHT FORM ENDS HERE -->
 
 
 <!-- Application
@@ -331,8 +277,11 @@
 !function ($) {
   $(function(){
 
-
-
+		// Use default settings
+    $("#nf-departure, #nf-arrival").timePicker({
+		  show24Hours: true,
+		  step: 30
+		});
 
   })
 }(window.jQuery)
