@@ -61,207 +61,235 @@
           <th>notes</th>
         </tr>
       </thead>
-      <tr class="departed">
-      	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
-        <td class="first">
-        	<select class="admin-flight-status input-small">
-	          <option selected>Departed</option>
-	          <option>Delayed</option>
-	          <option>Pending</option>
-	          <option>On-Time</option>
-	          <option>Arrived</option>
-	          <option>Canceled</option>
-	        </select>
-	      </td>
-        <td><label class="aircraft">TI-QWE</label></td>
-        <td><label class="departure-time">06:00</label></td>
-        <td><label class="arrival-time">12:00</label></td>
-        <td><label class="pilot">ASWAFFORD</label></td>
-        <td><label class="copilot">AKUZENKOV</label></td>
-        <td><label class="pax">2</label></td>
-        <td><label class="remarks">Expected wait 3+ hrs</label></td>
-      </tr>
+      <tbody id="flight-table-body">
+        <tr class="departed">
+        	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
+          <td class="first">
+          	<select class="admin-flight-status input-small">
+  	          <option selected>Departed</option>
+  	          <option>Delayed</option>
+  	          <option>Pending</option>
+  	          <option>On-Time</option>
+  	          <option>Arrived</option>
+  	          <option>Canceled</option>
+  	        </select>
+  	      </td>
+          <td><label class="aircraft">TI-QWE</label></td>
+          <td><label class="departure-time">06:00</label></td>
+          <td><label class="arrival-time">12:00</label></td>
+          <td><label class="pilot">ASWAFFORD</label></td>
+          <td><label class="copilot">AKUZENKOV</label></td>
+          <td><label class="pax">2</label></td>
+          <td><label class="remarks">Expected wait 3+ hrs</label></td>
+        </tr>
 
-      <tr class="delayed">
-      	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
-        <td class="first">
-        	<select class="admin-flight-status input-small">
-	          <option>Departed</option>
-	          <option selected>Delayed</option>
-	          <option>Pending</option>
-	          <option>On-Time</option>
-	          <option>Arrived</option>
-	          <option>Canceled</option>
-	        </select>
-	      </td>
-        <td><label class="aircraft">TI-WER</label></td>
-        <td><label class="departure-time">09:00</label></td>
-        <td><label class="arrival-time">10:00</label></td>
-        <td><label class="pilot">ASWAFFORD</label></td>
-        <td><label class="copilot">AKUZENKOV</label></td>
-        <td><label class="pax">3</label></td>
-        <td><label class="remarks">n/a</label></td>
-      </tr>
-      
-      <tr class="pending">
-      	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
-        <td class="first">
-        	<select class="admin-flight-status input-small">
-	          <option>Departed</option>
-	          <option>Delayed</option>
-	          <option selected>Pending</option>
-	          <option>On-Time</option>
-	          <option>Arrived</option>
-	          <option>Canceled</option>
-	        </select>
-	      </td>
-        <td><label class="aircraft">TI-???</label></td>
-        <td><label class="departure-time">06:00</label></td>
-        <td><label class="arrival-time">12:00</label></td>
-        <td><label class="pilot">ASWAFFORD</label></td>
-        <td><label class="copilot">AKUZENKOV</label></td>
-        <td><label class="pax">99</label></td>
-        <td><label class="remarks">Requires wheelchair</label></td>
-      </tr>
-      
-      <tr class="on-time">
-      	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
-        <td class="first">
-        	<select class="admin-flight-status input-small">
-	          <option>Departed</option>
-	          <option>Delayed</option>
-	          <option>Pending</option>
-	          <option selected>On-Time</option>
-	          <option>Arrived</option>
-	          <option>Canceled</option>
-	        </select>
-	      </td>
-        <td><label class="aircraft">TI-???</label></td>
-        <td><label class="departure-time">06:00</label></td>
-        <td><label class="arrival-time">12:00</label></td>
-        <td><label class="pilot">ASWAFFORD</label></td>
-        <td><label class="copilot">AKUZENKOV</label></td>
-        <td><label class="pax">99</label></td>
-        <td><label class="remarks">Requires wheelchair</label></td>
-      </tr>
-      
-      <tr class="arriving">
-      	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
-        <td class="first">
-        	<select class="admin-flight-status input-small">
-	          <option>Departed</option>
-	          <option>Delayed</option>
-	          <option>Pending</option>
-	          <option>On-Time</option>
-	          <option selected>Arrived</option>
-	          <option>Canceled</option>
-	        </select>
-	      </td>
-        <td><label class="aircraft">TI-???</label></td>
-        <td><label class="departure-time">06:00</label></td>
-        <td><label class="arrival-time">12:00</label></td>
-        <td><label class="pilot">ASWAFFORD</label></td>
-        <td><label class="copilot">AKUZENKOV</label></td>
-        <td><label class="pax">99</label></td>
-        <td><label class="remarks">Requires wheelchair</label></td>
-      </tr>
-      
-      <tr class="canceled">
-      	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
-        <td class="first">
-        	<select class="admin-flight-status input-small">
-	          <option>Departed</option>
-	          <option>Delayed</option>
-	          <option>Pending</option>
-	          <option>On-Time</option>
-	          <option>Arrived</option>
-	          <option selected>Canceled</option>
-	        </select>
-	      </td>
-        <td><label class="aircraft">TI-???</label></td>
-        <td><label class="departure-time">06:00</label></td>
-        <td><label class="arrival-time">12:00</label></td>
-        <td><label class="pilot">ASWAFFORD</label></td>
-        <td><label class="copilot">AKUZENKOV</label></td>
-        <td><label class="pax">99</label></td>
-        <td><label class="remarks">NOT ENOUGH PILOTS</label></td>
-      </tr>
+        <tr class="delayed">
+        	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
+          <td class="first">
+          	<select class="admin-flight-status input-small">
+  	          <option>Departed</option>
+  	          <option selected>Delayed</option>
+  	          <option>Pending</option>
+  	          <option>On-Time</option>
+  	          <option>Arrived</option>
+  	          <option>Canceled</option>
+  	        </select>
+  	      </td>
+          <td><label class="aircraft">TI-WER</label></td>
+          <td><label class="departure-time">09:00</label></td>
+          <td><label class="arrival-time">10:00</label></td>
+          <td><label class="pilot">ASWAFFORD</label></td>
+          <td><label class="copilot">AKUZENKOV</label></td>
+          <td><label class="pax">3</label></td>
+          <td><label class="remarks">n/a</label></td>
+        </tr>
+        
+        <tr class="pending">
+        	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
+          <td class="first">
+          	<select class="admin-flight-status input-small">
+  	          <option>Departed</option>
+  	          <option>Delayed</option>
+  	          <option selected>Pending</option>
+  	          <option>On-Time</option>
+  	          <option>Arrived</option>
+  	          <option>Canceled</option>
+  	        </select>
+  	      </td>
+          <td><label class="aircraft">TI-???</label></td>
+          <td><label class="departure-time">06:00</label></td>
+          <td><label class="arrival-time">12:00</label></td>
+          <td><label class="pilot">ASWAFFORD</label></td>
+          <td><label class="copilot">AKUZENKOV</label></td>
+          <td><label class="pax">99</label></td>
+          <td><label class="remarks">Requires wheelchair</label></td>
+        </tr>
+        
+        <tr class="on-time">
+        	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
+          <td class="first">
+          	<select class="admin-flight-status input-small">
+  	          <option>Departed</option>
+  	          <option>Delayed</option>
+  	          <option>Pending</option>
+  	          <option selected>On-Time</option>
+  	          <option>Arrived</option>
+  	          <option>Canceled</option>
+  	        </select>
+  	      </td>
+          <td><label class="aircraft">TI-???</label></td>
+          <td><label class="departure-time">06:00</label></td>
+          <td><label class="arrival-time">12:00</label></td>
+          <td><label class="pilot">ASWAFFORD</label></td>
+          <td><label class="copilot">AKUZENKOV</label></td>
+          <td><label class="pax">99</label></td>
+          <td><label class="remarks">Requires wheelchair</label></td>
+        </tr>
+        
+        <tr class="arriving">
+        	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
+          <td class="first">
+          	<select class="admin-flight-status input-small">
+  	          <option>Departed</option>
+  	          <option>Delayed</option>
+  	          <option>Pending</option>
+  	          <option>On-Time</option>
+  	          <option selected>Arrived</option>
+  	          <option>Canceled</option>
+  	        </select>
+  	      </td>
+          <td><label class="aircraft">TI-???</label></td>
+          <td><label class="departure-time">06:00</label></td>
+          <td><label class="arrival-time">12:00</label></td>
+          <td><label class="pilot">ASWAFFORD</label></td>
+          <td><label class="copilot">AKUZENKOV</label></td>
+          <td><label class="pax">99</label></td>
+          <td><label class="remarks">Requires wheelchair</label></td>
+        </tr>
+        
+        <tr class="canceled">
+        	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
+          <td class="first">
+          	<select class="admin-flight-status input-small">
+  	          <option>Departed</option>
+  	          <option>Delayed</option>
+  	          <option>Pending</option>
+  	          <option>On-Time</option>
+  	          <option>Arrived</option>
+  	          <option selected>Canceled</option>
+  	        </select>
+  	      </td>
+          <td><label class="aircraft">TI-???</label></td>
+          <td><label class="departure-time">06:00</label></td>
+          <td><label class="arrival-time">12:00</label></td>
+          <td><label class="pilot">ASWAFFORD</label></td>
+          <td><label class="copilot">AKUZENKOV</label></td>
+          <td><label class="pax">99</label></td>
+          <td><label class="remarks">NOT ENOUGH PILOTS</label></td>
+        </tr>
+      </tbody>
     </table>
+
+    <hr>
   </div><!-- ADMIN FLIGHT BOARD ENDS HERE -->
 
   <!-- ADMIN NEW FLIGHT FORM STARTS HERE -->
   <div id="admin-new-flight">
-		<form class="form-vertical">
-		  <fieldset>
-		    <div class="control-group">
-		      <label class="control-label" for="nf-date">Date</label>
-		      <div class="controls">
-		        <input type="text" class="input-xlarge" id="nf-date" placeholder="Flight date">
-		      </div>
-		    </div>
+    <input type="hidden" id="flightId"/>
+    <form class="form-vertical">
+  	  <fieldset>
+  	    <div class="control-group">
+  	      <label class="control-label" for="nf-date">Date</label>
+  	      <div class="controls">
+  	        <input type="text" class="input-xlarge" id="nf-date" placeholder="Flight date">
+  	      </div>
+  	    </div>
 
-		    <div class="control-group">
-		      <label class="control-label" for="nf-aircraft">Aircraft</label>
-		      <div class="controls">
-		        <select id="nf-aircraft">
-		          <option>TI-QWE</option>
-		          <option>TI-WER</option>
-		          <option>TI-ERT</option>
-		          <option>TI-RTY</option>
-		          <option>TI-TYU</option>
-		        </select>
-		      </div>
-		    </div>
+  	    <div class="control-group">
+  	      <label class="control-label" for="nf-aircraft">Aircraft</label>
+  	      <div class="controls">
+            
+  	        <select id="nf-aircraft">
+  	          <option>TI-QWE</option>
+  	          <option>TI-WER</option>
+  	          <option>TI-ERT</option>
+  	          <option>TI-RTY</option>
+  	          <option>TI-TYU</option>
+  	        </select>
+            <!-- 
+            <input type="text" class="input-medium" id="nf-aircraft" placeholder="Which aircraft?">
+             -->
+  	      </div>
+  	    </div>
 
-		    <div class="control-group">
-		      <label class="control-label" for="nf-date">Departure/Arrival</label>
-		      <div class="controls">
-		        <input type="text" class="input-small" id="nf-departure" placeholder="Depart">
-		        <input type="text" class="input-small" id="nf-arrival" placeholder="Arrive">
-		      </div>
-		    </div>
+  	    <div class="control-group">
+  	      <label class="control-label" for="nf-date">Departure/Arrival</label>
+  	      <div class="controls">
+  	        <input type="text" class="input-small" id="nf-departure" placeholder="Depart">
+  	        <input type="text" class="input-small" id="nf-arrival" placeholder="Arrive">
+  	      </div>
+  	    </div>
 
-		    <div class="control-group">
-		      <label class="control-label" for="nf-pilot">Pilot</label>
-		      <div class="controls">
-		        <input type="text" class="input-xlarge" id="nf-pilot" placeholder="Who is flying?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]">
-		      </div>
-		    </div>
+  	    <div class="control-group">
+  	      <label class="control-label" for="nf-pilot">Pilot</label>
+  	      <div class="controls">
+  	        <input type="text" class="input-xlarge" id="nf-pilot" placeholder="Who is flying?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]">
+  	      </div>
+  	    </div>
 
-		    <div class="control-group">
-		      <label class="control-label" for="nf-pilot">Co-Pilot</label>
-		      <div class="controls">
-		        <input type="text" class="input-xlarge" id="nf-pilot" placeholder="Who is co-pilot?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]">
-		      </div>
-		    </div>
+  	    <div class="control-group">
+  	      <label class="control-label" for="nf-pilot">Co-Pilot</label>
+  	      <div class="controls">
+  	        <input type="text" class="input-xlarge" id="nf-copilot" placeholder="Who is co-pilot?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]">
+  	      </div>
+  	    </div>
 
-		    <div class="control-group">
-		      <label class="control-label" for="nf-pax">Passengers</label>
-		      <div class="controls">
-		        <input type="number" class="input-medium" id="nf-pax" placeholder="How many?">
-		      </div>
-		    </div>
+  	    <div class="control-group">
+  	      <label class="control-label" for="nf-pax">Passengers</label>
+  	      <div class="controls">
+  	        <input type="number" class="input-medium" id="nf-pax" placeholder="How many?">
+  	      </div>
+  	    </div>
 
-		    <div class="control-group">
-		      <label class="control-label" for="nf-route">Route</label>
-		      <div class="controls">
-		        <input type="text" class="input-xlarge" id="nf-route" placeholder="MRPV-MROC-MRLB-MRLM-MRPV">
-		      </div>
-		    </div>
+  	    <div class="control-group">
+  	      <label class="control-label" for="nf-route">Route</label>
+  	      <div class="controls">
+  	        <input type="text" class="input-xlarge" id="nf-route" placeholder="MRPV-MROC-MRLB-MRLM-MRPV">
+  	      </div>
+  	    </div>
 
-		    <div class="control-group">
-		      <label class="control-label" for="textarea">Notes</label>
-		      <div class="controls">
-		        <textarea class="input-xlarge" id="textarea" rows="3" placeholder="Keep it short"></textarea>
-		      </div>
-		    </div>
+  	    <div class="control-group">
+  	      <label class="control-label" for="textarea">Notes</label>
+  	      <div class="controls">
+  	        <textarea class="input-xlarge" id="nf-notes" rows="3" placeholder="Keep it short"></textarea>
+  	      </div>
+  	    </div>
 
-		    <div class="form-actions">
-		      <button type="submit" class="btn btn-primary">Save changes</button>
-		      <button class="btn">Cancel</button>
-		    </div>
-		  </fieldset>
-		</form>
+        <div class="control-group">
+          <label class="control-label" for="nf-status">Status</label>
+          <div class="controls">
+            <select id="nf-status">
+              <option>pending</option>
+              <option>departed</option>
+              <option>on-time</option>
+              <option>arrived</option>
+              <option>delayed</option>
+              <option>canceled</option>
+            </select>
+            <!-- 
+            <input type="text" class="input-medium" id="nf-status" placeholder="Status of the flight">
+             -->
+          </div>
+        </div>
+
+  	    <div class="form-actions">
+          <button id="btn-insert-flight" class="btn btn-success" onclick="insertRecord()">Insert</button>
+          <button id="btn-update-flight" class="btn btn-primary hide" onclick="updateRecord()">Update</button>
+  	      <button class="btn" onclick="resetForm()">Reset</button>
+          <button onclick="dropTable()" class="hide">Drop Table</button>
+  	    </div>
+  	  </fieldset>
+    </form>
   </div><!-- ADMIN NEW FLIGHT FORM ENDS HERE -->
 
 
@@ -288,7 +316,131 @@
 </script>
 
 
+<script> 
+var flightResuts = document.getElementById('flight-table-body'); 
+var id = document.getElementById('flightId');
+var flightStatus = document.getElementById('nf-status');  
+var flightAircraft = document.getElementById('nf-aircraft');  
+var flightDate = document.getElementById('nf-date');  
+var flightDeparture = document.getElementById('nf-departure');  
+var flightArrival = document.getElementById('nf-arrival');  
+var flightPilot = document.getElementById('nf-pilot');  
+var flightCopilot = document.getElementById('nf-copilot');  
+var flightPassangers = document.getElementById('nf-pax');
+var flightRoute = document.getElementById('nf-route');
+var flightNotes = document.getElementById('nf-notes');
+ 
+var createStatement = "CREATE TABLE IF NOT EXISTS Flights (id INTEGER PRIMARY KEY AUTOINCREMENT, flightStatus TEXT, flightAircraft TEXT, flightDate TEXT, flightDeparture TEXT, flightArrival TEXT, flightPilot TEXT, flightCopilot TEXT, flightPassangers TEXT, flightRoute TEXT, flightNotes TEXT)";
+var selectAllStatement = "SELECT * FROM Flights ORDER BY flightDeparture";
+var insertStatement = "INSERT INTO Flights (flightStatus, flightAircraft, flightDate, flightDeparture, flightArrival, flightPilot, flightCopilot, flightPassangers, flightRoute, flightNotes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+var updateStatement = "UPDATE Flights SET flightStatus = ?, flightAircraft = ?, flightDate = ?, flightDeparture = ?, flightArrival = ?, flightPilot = ?, flightCopilot = ?, flightPassangers = ?, flightRoute = ?, flightNotes = ? WHERE id = ?";
+var deleteStatement = "DELETE FROM Flights WHERE id=?";
+var dropStatement = "DROP TABLE Flights";
 
+var db = openDatabase("FlightBoard", "1.0", "AeroBell Flight Board", 200000);
+var dataset;
+createTable();
+
+function onError(tx, error) {
+  alert(error.message);
+}
+      
+function showRecords() {
+  flightResuts.innerHTML = '';
+  db.transaction(function(tx) {
+    tx.executeSql(selectAllStatement, [], function(tx, result) {
+      dataset = result.rows;
+      for (var i = 0, item = null; i < dataset.length; i++) {
+        item = dataset.item(i);
+        flightResuts.innerHTML += 
+            '<tr class="' + item['flightStatus'] + '">' + 
+            '<td><button class="edit-flight" onclick="loadRecord('+i+')"><i class="icon-edit"></i></button><button class="remove-flight" onclick="deleteRecord('+item['id']+')"><i class="icon-trash"></i></button></td>' + 
+            '<td class="first">' + item['flightStatus'] + '</td>' + 
+            '<td class=""><label class="aircraft">' + item['flightAircraft'] + '</label></td>' + 
+            '<td class=""><label class="aircraft">' + item['flightDeparture'] + '</label></td>' + 
+            '<td class=""><label class="aircraft">' + item['flightArrival'] + '</label></td>' + 
+            '<td class=""><label class="aircraft">' + item['flightPilot'] + '</label></td>' +
+            '<td class=""><label class="aircraft">' + item['flightCopilot'] + '</label></td>' +
+            '<td class=""><label class="aircraft">' + item['flightPassangers'] + '</label></td>' +
+            '<td class=""><label class="aircraft">' + item['flightNotes'] + '</label></td>' +
+            '</tr>';
+      }
+    });
+  });
+}
+      
+function createTable() { 
+  db.transaction(function(tx) {
+    tx.executeSql(createStatement, [], showRecords, onError);
+  });
+}
+      
+function insertRecord() {
+  db.transaction(function(tx) {
+    tx.executeSql(insertStatement, [flightStatus.value, flightAircraft.value, flightDate.value, flightDeparture.value, flightArrival.value, flightPilot.value, flightCopilot.value, flightPassangers.value, flightRoute.value, flightNotes.value], loadAndReset, onError);
+  });
+}
+      
+function loadRecord(i) {
+  var item = dataset.item(i); 
+  flightStatus.value = item['flightStatus'];
+  flightAircraft.value = item['flightAircraft'];
+  flightDate.value = item['flightDate'];
+  flightDeparture.value = item['flightDeparture'];
+  flightArrival.value = item['flightArrival'];
+  flightPilot.value = item['flightPilot'];
+  flightCopilot.value = item['flightCopilot'];
+  flightPassangers.value = item['flightPassangers'];
+  flightRoute.value = item['flightRoute'];
+  flightNotes.value = item['flightNotes'];
+  id.value = item['id'];
+  $('#btn-insert-flight').hide();
+  $('#btn-update-flight').show();
+}
+
+function updateRecord() {
+  db.transaction(function(tx) {
+    tx.executeSql(updateStatement, [flightStatus.value, flightAircraft.value, flightDate.value, flightDeparture.value, flightArrival.value, flightPilot.value, flightCopilot.value, flightPassangers.value, flightRoute.value, flightNotes.value, id.value], loadAndReset, onError);
+  });
+  $('#btn-insert-flight').show();
+  $('#btn-update-flight').hide();
+}
+      
+function deleteRecord(id) {
+  db.transaction(function(tx) {
+    tx.executeSql(deleteStatement, [id], showRecords, onError);
+  });
+  resetForm();
+}
+       
+function dropTable() {
+  db.transaction(function(tx) {
+    tx.executeSql(dropStatement, [], showRecords, onError);
+  });
+  resetForm();
+}
+
+function loadAndReset(){
+  resetForm();
+  showRecords();
+}
+
+function resetForm(){
+  flightStatus.value = '';
+  flightAircraft.value = '';
+  flightDate.value = '';
+  flightDeparture.value = '';
+  flightArrival.value = '';
+  flightPilot.value = '';
+  flightCopilot.value = '';
+  flightPassangers.value = '';
+  flightRoute.value = '';
+  flightNotes.value = '';
+  id.value = '';
+  $('#btn-insert-flight').show();
+  $('#btn-update-flight').hide();
+}
+</script>
 
 </body>
 </html>

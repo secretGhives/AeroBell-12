@@ -259,8 +259,8 @@ color: #EBECD4;
 background: #527C1D;
 color: #E8ECD4;
 }
-.arriving td {background: rgba(185, 135, 47, 0.42);}
-.arriving .first {
+.arrived td {background: rgba(185, 135, 47, 0.42);}
+.arrived .first {
 background: #7C561D;
 color: #ECE0D4;
 }
