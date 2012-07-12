@@ -206,11 +206,11 @@ box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
 .b { text-align: center; border-collapse: collapse; border-top: 7px solid lavender; border-bottom: 7px solid lavender;
 margin: 0; font-size: 42px; line-height: normal; color: #666; }
 .b th,
-.b tfoot td { font-size: 32px !important; font-weight: normal; background: #e8edff; border-right: 1px solid #9baff1; /*border-left: 1px solid #9baff1;*/ color: #38c; padding: 3px; cursor: pointer; }
+.b tfoot td { font-size: 32px !important; font-weight: normal; background: #e8edff; border-right: 1px solid #9baff1; /*border-left: 1px solid #9baff1;*/ color: #38c; padding: 3px; cursor: pointer; text-transform: uppercase; }
 .b td { background: #F6F6F6; border-right: 1px solid lavender; border-left: 1px solid lavender; padding: 1px 2px; }
 .b select { margin-bottom: 0; }
 
-
+#flight-table-body td {text-transform: uppercase; }
 #flight-table tr {
 	position: relative;
 	border-bottom: 1px dotted #ccc;
@@ -218,7 +218,6 @@ margin: 0; font-size: 42px; line-height: normal; color: #666; }
 #flight-table tr:last-child {border-bottom: none; }
 
 #flight-table tr label {
-	word-break: break-word;
 	display: inline-block;
 	line-height: 1.2;
 	-webkit-transition: color 0.4s;
@@ -273,7 +272,11 @@ background: red;
 color: white;
 }
 
-
+.first {
+text-transform: uppercase;
+font-size: 20px;
+font-weight: bold;
+}
 
 
 
@@ -481,7 +484,7 @@ right: 0;
 width: 310px;
 background: #ddd;
 }
-#admin-new-flight form {
+#admin-new-flight #form {
 position: absolute;
 top: 6px;
 bottom: 6px;

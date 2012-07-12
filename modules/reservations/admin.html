@@ -14,8 +14,8 @@
   <!-- Libraries -->
   <script src="../../assets/libs/jquery.js"></script>
   <script src="../../assets/libs/bootstrap.js"></script>
-  <script src="../../assets/libs/date.js"></script>
   <script src="../../assets/libs/time.js"></script>
+  <script src="../../assets/libs/datepicker.js"></script>
 
   <!-- LOADING SCRIPT STARTS -->
   <script>
@@ -89,29 +89,19 @@
   <!-- ADMIN NEW FLIGHT FORM STARTS HERE -->
   <div id="admin-new-flight">
     <input type="hidden" id="flightId"/>
-    <form class="form-vertical">
+    <section id="form" class="form-vertical">
   	  <fieldset>
   	    <div class="control-group">
   	      <label class="control-label" for="nf-date">Date</label>
   	      <div class="controls">
-  	        <input type="text" class="input-xlarge" id="nf-date" placeholder="Flight date">
+  	        <input type="text" class="input-medium" id="nf-date" placeholder="Flight date" data-datepicker="datepicker">
   	      </div>
   	    </div>
 
   	    <div class="control-group">
   	      <label class="control-label" for="nf-aircraft">Aircraft</label>
   	      <div class="controls">
-            
-  	        <select id="nf-aircraft">
-  	          <option>TI-QWE</option>
-  	          <option>TI-WER</option>
-  	          <option>TI-ERT</option>
-  	          <option>TI-RTY</option>
-  	          <option>TI-TYU</option>
-  	        </select>
-            <!-- 
-            <input type="text" class="input-medium" id="nf-aircraft" placeholder="Which aircraft?">
-             -->
+            <input type="text" class="input-medium" id="nf-aircraft" placeholder="Which aircraft?" data-provide="typeahead" data-items="7" data-source="[&quot;TI-QWE&quot;,&quot;TI-WER&quot;,&quot;TI-ERT&quot;,&quot;TI-RTY&quot;,&quot;TI-TYU&quot;,&quot;TI-BAW&quot;]">
   	      </div>
   	    </div>
 
@@ -126,14 +116,14 @@
   	    <div class="control-group">
   	      <label class="control-label" for="nf-pilot">Pilot</label>
   	      <div class="controls">
-  	        <input type="text" class="input-xlarge" id="nf-pilot" placeholder="Who is flying?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]">
+  	        <input type="text" class="input-xlarge" id="nf-pilot" placeholder="Who is flying?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]" maxlength="10">
   	      </div>
   	    </div>
 
   	    <div class="control-group">
   	      <label class="control-label" for="nf-pilot">Co-Pilot</label>
   	      <div class="controls">
-  	        <input type="text" class="input-xlarge" id="nf-copilot" placeholder="Who is co-pilot?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]">
+  	        <input type="text" class="input-xlarge" id="nf-copilot" placeholder="Who is co-pilot?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]" maxlength="10">
   	      </div>
   	    </div>
 
@@ -161,17 +151,7 @@
         <div class="control-group">
           <label class="control-label" for="nf-status">Status</label>
           <div class="controls">
-            <select id="nf-status">
-              <option>pending</option>
-              <option>departed</option>
-              <option>on-time</option>
-              <option>arrived</option>
-              <option>delayed</option>
-              <option>canceled</option>
-            </select>
-            <!-- 
-            <input type="text" class="input-medium" id="nf-status" placeholder="Status of the flight">
-             -->
+            <input type="text" class="input-medium" id="nf-status" placeholder="Status of the flight" data-provide="typeahead" data-items="4" data-source="[&quot;pending&quot;,&quot;departed&quot;,&quot;on-time&quot;,&quot;arrived&quot;,&quot;delayed&quot;,&quot;canceled&quot;]" maxlength="10">
           </div>
         </div>
 
@@ -182,7 +162,8 @@
           <button onclick="dropTable()" class="hide">Drop Table</button>
   	    </div>
   	  </fieldset>
-    </form>
+    </section>
+
   </div><!-- ADMIN NEW FLIGHT FORM ENDS HERE -->
 
 
@@ -203,6 +184,8 @@
 		  show24Hours: true,
 		  step: 30
 		});
+
+    //$('#nf-date').datepicker();
 
   })
 }(window.jQuery)

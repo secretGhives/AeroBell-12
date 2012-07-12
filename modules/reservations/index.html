@@ -79,12 +79,13 @@
         <thead>
           <tr>
             <th>status</th>
-            <th>aircraft</th>
-            <th>departure</th>
-            <th>arrival</th>
+            <th><i class="icon-plane"></i></th>
+            <th><i class="icon-circle-arrow-up"></i></th>
+            <th><i class="icon-circle-arrow-down"></i></th>
             <th>pilot</th>
             <th>copilot</th>
-            <th>pax</th>
+            <th><i class="icon-group"></i></th>
+            <th><i class="icon-random"></i></th>
             <th>notes</th>
           </tr>
         </thead>
@@ -116,7 +117,7 @@
         <img src="http://www.imn.ac.cr/especial/SATELITE.GIF" class="fit" />
         <img src="http://images.intellicast.com/WxImages/Satellite/camer.jpg" class="fit" />
         <img src="http://images.intellicast.com/WxImages/SatelliteLoop/hicbsat_None_anim.gif" class="fit" />
-        <img src="http://moska.kuzya.com/mosquito.jpg" class="fit" />
+        <img src="http://www.imn.ac.cr/especial/QNHPAVAS.png" class="fit" />
         <img src="http://www.imn.ac.cr/especial/PavasRed.png" class="fit" />
       </div>
 
@@ -156,7 +157,7 @@
     //var flipTimer = setInterval( rotateTabs, 30000);
 
     //Get METAR
-    $("#localMetar").load("../../assets/php/metar.php?icao=MRPV");
+    $("#localMetar").load("../../assets/php/metar.php?icao=MRPV&MROC");
     $("#localTaf").load("../../assets/php/taf.php?icao=MRPV");
 
     //Get MROC NOTAM
@@ -216,6 +217,7 @@ function showRecords() {
             '<td class=""><label class="aircraft">' + item['flightPilot'] + '</label></td>' +
             '<td class=""><label class="aircraft">' + item['flightCopilot'] + '</label></td>' +
             '<td class=""><label class="aircraft">' + item['flightPassangers'] + '</label></td>' +
+            '<td class=""><label class="route">' + item['flightRoute'] + '</label></td>' +
             '<td class=""><label class="aircraft">' + item['flightNotes'] + '</label></td>' +
             '</tr>';
       }
