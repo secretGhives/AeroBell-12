@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS Flights (id INTEGER PRIMARY KEY AUTOINCREMENT, flightStatus TEXT, flightAircraft TEXT, flightDate TEXT, flightDeparture TEXT, flightArrival TEXT, flightPilot TEXT, flightCopilot TEXT, flightPassangers TEXT, flightRoute TEXT, flightNotes TEXT);

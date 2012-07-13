@@ -51,12 +51,12 @@ body {
 
 .tab-content > .active { display: block;}
 .fit {
-width: 472px;
+width: 544px;
 max-width: 33.3%;
 vertical-align: top;
 padding: 0;
 border: 0;
-height: 360px;
+height: 401px;
 float: left;
 }
 
@@ -83,7 +83,7 @@ border-bottom: 2px solid #ddd;
 .accordion-sub-header h2 { display: inline-block; vertical-align: middle; }
 .thumbnail { line-height: 0; }
 
-
+.metar {display: block; margin-bottom: 12px; font-weight: bolder; }
 
 
 /* TOP TABS 
@@ -499,3 +499,7 @@ border-left-color: #CCC;
 border-right-color: #CCC;
 border-top-color: #DDD;
 }
+#admin-options {margin: 0 0 0 12px; }
+#admin-options label {margin: 0; }
+#admin-options li {display: inline-block; margin-right: 16px; padding: 3px 0 0 0; }
+#admin-flight-table label input {float: none; }

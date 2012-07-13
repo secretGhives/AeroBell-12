@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Flight</title>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no, maximum-scale = 1"> 
+  <meta http-equiv="cleartype" content="on"> 
+  
+  <script src="../../assets/libs/jquery.js"></script>
+  <script src="../../assets/libs/bootstrap.js"></script>
+  <script src="../../assets/libs/html5sql.js"></script>
+  
+  <script src="app.js"></script>
+  
+</head> 
+<body>
+
+<div data-role="page" class="type-interior" data-theme="a" id="new_person">
+
+  <div data-role="header" data-theme="a">
+    <h1>New Person</h1>
+    <a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+  </div>
+
+  <div data-role="content">
+    
+    <form action="#" method="get">
+
+        <div class="control-group">
+          <label class="control-label" for="nf-date">Date</label>
+          <div class="controls">
+            <input type="text" class="input-medium" id="nf-date" placeholder="Flight date" data-datepicker="datepicker">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="nf-aircraft">Aircraft</label>
+          <div class="controls">
+            <input type="text" class="input-medium" id="nf-aircraft" placeholder="Which aircraft?" data-provide="typeahead" data-items="7" data-source="[&quot;TI-QWE&quot;,&quot;TI-WER&quot;,&quot;TI-ERT&quot;,&quot;TI-RTY&quot;,&quot;TI-TYU&quot;,&quot;TI-BAW&quot;]">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="nf-date">Departure/Arrival</label>
+          <div class="controls">
+            <input type="text" class="input-small" id="nf-departure" placeholder="Depart">
+            <input type="text" class="input-small" id="nf-arrival" placeholder="Arrive">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="nf-pilot">Pilot</label>
+          <div class="controls">
+            <input type="text" class="input-xlarge" id="nf-pilot" placeholder="Who is flying?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]" maxlength="10">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="nf-pilot">Co-Pilot</label>
+          <div class="controls">
+            <input type="text" class="input-xlarge" id="nf-copilot" placeholder="Who is co-pilot?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]" maxlength="10">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="nf-pax">Passengers</label>
+          <div class="controls">
+            <input type="number" class="input-medium" id="nf-pax" placeholder="How many?">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="nf-route">Route</label>
+          <div class="controls">
+            <input type="text" class="input-xlarge" id="nf-route" placeholder="MRPV-MROC-MRLB-MRLM-MRPV">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="textarea">Notes</label>
+          <div class="controls">
+            <textarea class="input-xlarge" id="nf-notes" rows="3" placeholder="Keep it short"></textarea>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="nf-status">Status</label>
+          <div class="controls">
+            <input type="text" class="input-medium" id="nf-status" placeholder="Status of the flight" data-provide="typeahead" data-items="4" data-source="[&quot;pending&quot;,&quot;departed&quot;,&quot;on-time&quot;,&quot;arrived&quot;,&quot;delayed&quot;,&quot;canceled&quot;]" maxlength="10">
+          </div>
+        </div>
+      
+      <br><br>
+      
+
+        <fieldset class="ui-grid-a">
+            <div class="ui-block-a"><button type="submit" data-theme="d">Cancel</button></div>
+            <div class="ui-block-b"><button type="submit" data-theme="a" id="save_person">Save</button></div>
+        </fieldset>
+
+    
+    </form>
+
+  </div>
+
+</div>
+
+</body>
+</html>

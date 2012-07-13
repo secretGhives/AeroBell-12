@@ -9,42 +9,115 @@
 
   <link rel="stylesheet" href="../../assets/css/su.css">
   <link rel="stylesheet" href="../../assets/css/font-awesome.css">
-<!--  <link rel="stylesheet" href="../../assets/css/bootstrap.css"> -->
 
   <!-- Libraries -->
   <script src="../../assets/libs/jquery.js"></script>
   <script src="../../assets/libs/bootstrap.js"></script>
   <script src="../../assets/libs/clock.js"></script>
+  <script src="../../assets/libs/sqlite.js"></script>
 
   <!-- LOADING SCRIPT STARTS -->
   <script>
   $(window).load(function(){
+
+    if(typeof(Storage)!=="undefined") {
+      // Yes! localStorage and sessionStorage support!
+      console.log("LocalStorage Enabled");
+
+      var flipInterval, flightInterval;
+      var pageSetting = localStorage.flipper;
+      switch (pageSetting) {
+          case 'flights':
+            console.log("loading default page setting for Flights");
+            $('#weather').removeClass('active in');
+            $('#flights').addClass('active in');
+
+            loadFlights();
+            flightInterval = setInterval( loadFlights, 3000 );
+
+            break;
+          case 'weather':
+            console.log("loading default page setting for Weather");
+            $('#flights').removeClass('active in');
+            $('#weather').addClass('active in');
+
+            loadWeather();
+
+            break;
+          case 'rotate':
+            console.log("loading default page setting for Rotation");
+            flipInterval = setInterval( rotateTabs, 30000 );
+            console.log('started 30 second flip');
+
+            loadWeather();
+            loadFlights();
+
+            break;
+          default: 
+            console.log("loading default page setting");
+      }
+
+    } else {
+      // Sorry! No web storage support..
+      console.log("LocalStorage Disabled");
+    }
+
     $("#loading").fadeOut(function(){
       $(this).remove();
       $('body').css('overflow', 'auto');
     });
   });
 
-  var flipInterval; 
-  function startFlip() {
-    flipInterval = setInterval( rotateTabs, 10000 );
-    console.log('started 10 second flip');
+  function loadFlights() {
+    var db = SQLite({ shortName: 'FlightBoard' });
+    db.select('Flights', '*', null, { order: 'flightDeparture DESC' }, function (results) { 
+      document.getElementById('flight-table-body').innerHTML = " ";
+      var x; for(x=0; x<results.rows.length; x++) {
+        var item = results.rows.item(x);
+        document.getElementById('flight-table-body').innerHTML += 
+            '<tr class="' + item['flightStatus'] + '">' + 
+            '<td class="first"><label class="status">' + item['flightStatus'] + '</label></td>' + 
+            '<td class=""><label class="aircraft">' + item['flightAircraft'] + '</label></td>' + 
+            '<td class=""><label class="aircraft">' + item['flightDeparture'] + '</label></td>' + 
+            '<td class=""><label class="aircraft">' + item['flightArrival'] + '</label></td>' + 
+            '<td class=""><label class="aircraft">' + item['flightPilot'] + '</label></td>' +
+            '<td class=""><label class="aircraft">' + item['flightCopilot'] + '</label></td>' +
+            '<td class=""><label class="aircraft">' + item['flightPassangers'] + '</label></td>' +
+            '<td class=""><label class="route">' + item['flightRoute'] + '</label></td>' +
+            '<td class=""><label class="aircraft">' + item['flightNotes'] + '</label></td>' +
+            '</tr>';
+      } 
+    });
+  }
+
+  function loadWeather() {
+    //Get METAR
+    $("#MRPV .metar").load("../../assets/php/metar.php?icao=MRPV");
+    $("#MRPV .taf").load("../../assets/php/taf.php?icao=MRPV");
+    $("#MROC .metar").load("../../assets/php/metar.php?icao=MROC");
+    $("#MROC .taf").load("../../assets/php/taf.php?icao=MROC");
+    $("#MRLB .metar").load("../../assets/php/metar.php?icao=MRLB");
+    $("#MRLB .taf").load("../../assets/php/taf.php?icao=MRLB");
+    $("#MRLM .metar").load("../../assets/php/metar.php?icao=MRLM");
+    $("#MRLM .taf").load("../../assets/php/taf.php?icao=MRLM");
+  }
+
+  //Function to switch tabs
+  function rotateTabs() {
+    //console.log('rotated');
+    if ( $('#flights').hasClass("active") ) {
+      $('#weather').addClass('active in');
+      $('#flights').removeClass('active in');
+    } else {
+      $('#flights').addClass('active in');
+      $('#weather').removeClass('active in');
+    }
   }
   function stopFlip() {
     clearInterval(flipInterval);
     console.log('stopped flipping');
   }
 
-
-  //Function to switch tabs
-  function rotateTabs() {
-    //console.log('rotated');
-    if ( $('#flights').hasClass("active") ) {
-      $('#weather-link').tab('show');
-    } else {
-      $('#flights-link').tab('show');
-    }
-  }
   </script>
   <style type = "text/css">
     body{overflow: hidden;}
@@ -65,173 +138,79 @@
   </script> 
   </div> 
 
-<ul id="flightTabs" class="nav nav-tabs">
-  <li class=""><a id="flights-link" href="#flights" data-toggle="tab"><i class="icon-dashboard"></i></a></li>
-  <li class=""><a id="weather-link" href="#weather" data-toggle="tab"><i class="icon-cloud"></i></a></li>
-  <li class=""><label class="checkbox"><input type="checkbox" id="rotation-check" value="rotate"> Rotate?</label></li>
-</ul>
- 
-  <div id="myTabContent" class="tab-content">
+  <!-- FLIGHT BOARD TAB STARTS HERE -->
+  <div class="fade active in" id="flights">
+    <table id="flight-table" class="full b">
+      <thead>
+        <tr>
+          <th class="th-status">status</th>
+          <th class="th-tail">tail</th>
+          <th class="th-depart">depart</th>
+          <th class="th-arrive">arrive</th>
+          <th class="th-pilot">pilot</th>
+          <th class="th-copilot">copilot</th>
+          <th class="th-pax">pax</th>
+          <th class="th-route">route</th>
+          <th class="th-notes">notes</th>
+        </tr>
+      </thead>
 
-    <!-- FLIGHT BOARD TAB STARTS HERE -->
-    <div class="tab-pane fade active in" id="flights">
-      <table id="flight-table" class="full b">
-        <thead>
-          <tr>
-            <th>status</th>
-            <th>tail</th>
-            <th>depart</th>
-            <th>arrive</th>
-            <th>pilot</th>
-            <th>copilot</th>
-            <th>pax</th>
-            <th>route</th>
-            <th>notes</th>
-          </tr>
-        </thead>
+      <tbody id="flight-table-body">
+        <!--         
+        <tr class="departed">
+          <td class="first"><label class="status">departed</label></td>
+          <td><label class="aircraft">TI-QWE</label></td>
+          <td><label class="departure-time">06:00</label></td>
+          <td><label class="arrival-time">12:00</label></td>
+          <td><label class="pilot">ASWAFFORD</label></td>
+          <td><label class="copilot">AKUZENKOV</label></td>
+          <td><label class="pax">2</label></td>
+          <td><label class="route">MRPV-MROC</label></td>
+          <td><label class="remarks">Expected wait 3+ hrs</label></td>
+        </tr>
+        -->
+      </tbody>
 
-        <tbody id="flight-table-body">
-          <tr class="departed">
-            <td class="first"><label class="status">departed</label></td>
-            <td><label class="aircraft">TI-QWE</label></td>
-            <td><label class="departure-time">06:00</label></td>
-            <td><label class="arrival-time">12:00</label></td>
-            <td><label class="pilot">ASWAFFORD</label></td>
-            <td><label class="copilot">AKUZENKOV</label></td>
-            <td><label class="pax">2</label></td>
-            <td><label class="remarks">Expected wait 3+ hrs</label></td>
-          </tr>
-        </tbody>
-
-      </table>
-    </div><!-- FLIGHT BOARD TAB ENDS HERE -->
+    </table>
+  </div><!-- FLIGHT BOARD TAB ENDS HERE -->
 
 
-    <!-- WEATHER TAB STARTS HERE -->
-    <div class="tab-pane fade" id="weather">
-      <div id="weather-images">
-        <img src="http://images.intellicast.com/WxImages/CurrentWind/camer.jpg" class="fit" />
-        <img src="http://images.intellicast.com/WxImages/Winds/camer_day1.jpg" class="fit" />
-        <img src="http://images.intellicast.com/WxImages/CurrentConditions/camer.jpg" class="fit" />
-        <img src="http://www.imn.ac.cr/especial/SATVIS.GIF" class="fit" />
-        <img src="http://www.imn.ac.cr/especial/SATELITE.GIF" class="fit" />
-        <img src="http://images.intellicast.com/WxImages/Satellite/camer.jpg" class="fit" />
-        <img src="http://images.intellicast.com/WxImages/SatelliteLoop/hicbsat_None_anim.gif" class="fit" />
-        <img src="http://www.imn.ac.cr/especial/QNHPAVAS.png" class="fit" />
-        <img src="http://www.imn.ac.cr/especial/PavasRed.png" class="fit" />
-      </div>
+  <!-- WEATHER TAB STARTS HERE -->
+  <div class="fade" id="weather">
+    <div id="weather-images">
+      <img src="http://images.intellicast.com/WxImages/CurrentWind/camer.jpg" class="fit" />
+      <img src="http://images.intellicast.com/WxImages/Winds/camer_day1.jpg" class="fit" />
+      <img src="http://images.intellicast.com/WxImages/CurrentConditions/camer.jpg" class="fit" />
+      <img src="http://www.imn.ac.cr/especial/SATVIS.GIF" class="fit" />
+      <img src="http://www.imn.ac.cr/especial/SATELITE.GIF" class="fit" />
+      <img src="http://images.intellicast.com/WxImages/Satellite/camer.jpg" class="fit" />
+      <img src="http://images.intellicast.com/WxImages/SatelliteLoop/hicbsat_None_anim.gif" class="fit" />
+      <img src="http://www.imn.ac.cr/especial/QNHPAVAS.png" class="fit" />
+      <img src="http://www.imn.ac.cr/especial/PavasRed.png" class="fit" />
+    </div>
 
-      <div id="weather-text">
-        <div id="weather-pad">
-          <div id="clock"></div>
-          <div id="localMetar" class="text-data">n/a</div>
-          <div id="localTaf" class="text-data">n/a</div>
-          <div id="localNotam" class="text-data">n/a</div>
+    <div id="weather-text">
+      <div id="weather-pad">
+        <div id="clock"></div>
+        <div id="MRPV" class="text-data">
+          <span class="metar">n/a</span>
+          <span class="taf">n/a</span>
+        </div>
+        <div id="MROC" class="text-data">
+          <span class="metar">n/a</span>
+          <span class="taf">n/a</span>
+        </div>
+        <div id="MRLB" class="text-data">
+          <span class="metar">n/a</span>
+          <span class="taf">n/a</span>
+        </div>
+        <div id="MRLM" class="text-data">
+          <span class="metar">n/a</span>
+          <span class="taf">n/a</span>
         </div>
       </div>
-    </div><!-- WEATHER TAB ENDS HERE -->
-  </div>
-
-
-
-<!-- Plugins -->
-
-
-
-<!-- Application
-<script src="../../assets/libs/chosen-min.js"></script>
-<script src="app/fazzle.js"></script>
-<script src="app/modules/runway.js"></script>
-<script src="../../assets/libs/underscore.js"></script>
-<script src="../../assets/libs/backbone.js"></script>
--->
-
-<script>
-!function ($) {
-  $(function(){
-
-    $('#rotation-check').change(function(){
-      var k = this.checked ? startFlip() : stopFlip();
-    });
-
-    //var flipTimer = setInterval( rotateTabs, 30000);
-
-    //Get METAR
-    $("#localMetar").load("../../assets/php/metar.php?icao=MRPV&MROC");
-    $("#localTaf").load("../../assets/php/taf.php?icao=MRPV");
-
-    //Get MROC NOTAM
-    $.ajax({
-    type: "POST",
-    url: "../../assets/php/proxyNotam.php?url=https://www.notams.jcs.mil/dinsQueryWeb/queryRetrievalMapAction.do",
-    data: {'retrieveLocId': "MROC"},
-    success: function(data) {
-      $('#localNotam').html(data);
-      }
-    });
-
-
-  })
-}(window.jQuery)
-</script>
-
-
-<script> 
-var flightResuts = document.getElementById('flight-table-body'); 
-var id = document.getElementById('flightId');
-var flightStatus = document.getElementById('nf-status');  
-var flightAircraft = document.getElementById('nf-aircraft');  
-var flightDate = document.getElementById('nf-date');  
-var flightDeparture = document.getElementById('nf-departure');  
-var flightArrival = document.getElementById('nf-arrival');  
-var flightPilot = document.getElementById('nf-pilot');  
-var flightCopilot = document.getElementById('nf-copilot');  
-var flightPassangers = document.getElementById('nf-pax');
-var flightRoute = document.getElementById('nf-route');
-var flightNotes = document.getElementById('nf-notes');
- 
-var createStatement = "CREATE TABLE IF NOT EXISTS Flights (id INTEGER PRIMARY KEY AUTOINCREMENT, flightStatus TEXT, flightAircraft TEXT, flightDate TEXT, flightDeparture TEXT, flightArrival TEXT, flightPilot TEXT, flightCopilot TEXT, flightPassangers TEXT, flightRoute TEXT, flightNotes TEXT)";
-var selectAllStatement = "SELECT * FROM Flights ORDER BY flightDeparture";
-
-var db = openDatabase("FlightBoard", "1.0", "AeroBell Flight Board", 200000);
-var dataset;
-createTable();
-
-function onError(tx, error) {
-  alert(error.message);
-}
-      
-function showRecords() {
-  flightResuts.innerHTML = '';
-  db.transaction(function(tx) {
-    tx.executeSql(selectAllStatement, [], function(tx, result) {
-      dataset = result.rows;
-      for (var i = 0, item = null; i < dataset.length; i++) {
-        item = dataset.item(i);
-        flightResuts.innerHTML += 
-            '<tr class="' + item['flightStatus'] + '">' + 
-            '<td class="first"><label class="status">' + item['flightStatus'] + '</label></td>' + 
-            '<td class=""><label class="aircraft">' + item['flightAircraft'] + '</label></td>' + 
-            '<td class=""><label class="aircraft">' + item['flightDeparture'] + '</label></td>' + 
-            '<td class=""><label class="aircraft">' + item['flightArrival'] + '</label></td>' + 
-            '<td class=""><label class="aircraft">' + item['flightPilot'] + '</label></td>' +
-            '<td class=""><label class="aircraft">' + item['flightCopilot'] + '</label></td>' +
-            '<td class=""><label class="aircraft">' + item['flightPassangers'] + '</label></td>' +
-            '<td class=""><label class="route">' + item['flightRoute'] + '</label></td>' +
-            '<td class=""><label class="aircraft">' + item['flightNotes'] + '</label></td>' +
-            '</tr>';
-      }
-    });
-  });
-}
-      
-function createTable() { 
-  db.transaction(function(tx) {
-    tx.executeSql(createStatement, [], showRecords, onError);
-  });
-}
-
-</script>
+    </div>
+  </div><!-- WEATHER TAB ENDS HERE -->
 
 </body>
 </html>

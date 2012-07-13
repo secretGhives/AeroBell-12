@@ -20,6 +20,16 @@
   <!-- LOADING SCRIPT STARTS -->
   <script>
   $(window).load(function(){
+
+    if(typeof(Storage)!=="undefined") {
+      // Yes! localStorage and sessionStorage support!
+      console.log("LocalStorage Enabled");
+      $('#rad' + localStorage.flipper).attr('checked',true);
+    } else {
+      // Sorry! No web storage support..
+      console.log("LocalStorage Disabled");
+    }
+
     $("#loading").fadeOut(function(){
       $(this).remove();
       $('body').css('overflow', 'auto');
@@ -47,18 +57,25 @@
 
   <!-- ADMIN FLIGHT BOARD STARTS HERE -->
   <div id="admin-flights">
+
+    <ul id="admin-options" class="unstyled">
+      <li><label class="radio"><input type="radio" name="pageOptions" id="radflights" value="flights" checked>Flights</label></li>
+      <li><label class="radio"><input type="radio" name="pageOptions" id="radweather" value="weather"> Weather</label></li>
+      <li><label class="radio"><input type="radio" name="pageOptions" id="radrotate" value="rotate"> Rotate</label></li>
+    </ul>
+
     <table id="admin-flight-table" class="full b">
       <thead>
         <tr>
           <th><i class="icon-cogs"></i></th>
-          <th>status</th>
-          <th>aircraft</th>
-          <th>departure</th>
-          <th>arrival</th>
-          <th>pilot</th>
-          <th>copilot</th>
-          <th>pax</th>
-          <th>notes</th>
+          <th><label class="checkbox"><input id="colStatus" type="checkbox" checked /> status</label></th>
+          <th><label class="checkbox"><input id="colAircraft" type="checkbox" checked /> aircraft</label></th>
+          <th><label class="checkbox"><input id="colDeparture" type="checkbox" checked /> departure</label></th>
+          <th><label class="checkbox"><input id="colArrival" type="checkbox" checked /> arrival</label></th>
+          <th><label class="checkbox"><input id="colPilot" type="checkbox" checked /> pilot</label></th>
+          <th><label class="checkbox"><input id="colCopilot" type="checkbox" checked /> copilot</label></th>
+          <th><label class="checkbox"><input id="colPax" type="checkbox" checked /> pax</label></th>
+          <th><label class="checkbox"><input id="colNotes" type="checkbox" checked /> notes</label></th>
         </tr>
       </thead>
       <tbody id="flight-table-body">
@@ -185,9 +202,13 @@
 		  step: 30
 		});
 
-    //$('#nf-date').datepicker();
+    $("input[name='pageOptions']").change(function(){
+      console.log("set to:" + $(this).val());
+      localStorage.flipper = $(this).val();
+    });
 
-  })
+
+  });
 }(window.jQuery)
 </script>
 
@@ -231,14 +252,14 @@ function showRecords() {
         flightResuts.innerHTML += 
             '<tr class="' + item['flightStatus'] + '">' + 
             '<td><button class="edit-flight" onclick="loadRecord('+i+')"><i class="icon-edit"></i></button><button class="remove-flight" onclick="deleteRecord('+item['id']+')"><i class="icon-trash"></i></button></td>' + 
-            '<td class="first">' + item['flightStatus'] + '</td>' + 
-            '<td class=""><label class="aircraft">' + item['flightAircraft'] + '</label></td>' + 
-            '<td class=""><label class="aircraft">' + item['flightDeparture'] + '</label></td>' + 
-            '<td class=""><label class="aircraft">' + item['flightArrival'] + '</label></td>' + 
-            '<td class=""><label class="aircraft">' + item['flightPilot'] + '</label></td>' +
-            '<td class=""><label class="aircraft">' + item['flightCopilot'] + '</label></td>' +
-            '<td class=""><label class="aircraft">' + item['flightPassangers'] + '</label></td>' +
-            '<td class=""><label class="aircraft">' + item['flightNotes'] + '</label></td>' +
+            '<td class="first editable" contentEditable="true">' + item['flightStatus'] + '</td>' + 
+            '<td class=""><label class="aircraft editable" contentEditable="true">' + item['flightAircraft'] + '</label></td>' + 
+            '<td class=""><label class="departure editable" contentEditable="true">' + item['flightDeparture'] + '</label></td>' + 
+            '<td class=""><label class="arrival editable" contentEditable="true">' + item['flightArrival'] + '</label></td>' + 
+            '<td class=""><label class="pilot editable" contentEditable="true">' + item['flightPilot'] + '</label></td>' +
+            '<td class=""><label class="copilot editable" contentEditable="true">' + item['flightCopilot'] + '</label></td>' +
+            '<td class=""><label class="pax editable" contentEditable="true">' + item['flightPassangers'] + '</label></td>' +
+            '<td class=""><label class="notes editable" contentEditable="true">' + item['flightNotes'] + '</label></td>' +
             '</tr>';
       }
     });
@@ -273,6 +294,9 @@ function loadRecord(i) {
   $('#btn-insert-flight').hide();
   $('#btn-update-flight').show();
 }
+
+
+
 
 function updateRecord() {
   db.transaction(function(tx) {
