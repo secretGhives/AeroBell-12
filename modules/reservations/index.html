@@ -24,7 +24,7 @@
       // Yes! localStorage and sessionStorage support!
       console.log("LocalStorage Enabled");
 
-      var flipInterval, flightInterval;
+      var flipInterval, flightInterval, weatherInterval;
       var pageSetting = localStorage.flipper;
       switch (pageSetting) {
           case 'flights':
@@ -42,6 +42,7 @@
             $('#weather').addClass('active in');
 
             loadWeather();
+            weatherInterval = setInterval( loadWeather, 600000 );
 
             break;
           case 'rotate':
@@ -51,6 +52,7 @@
 
             loadWeather();
             loadFlights();
+            flightInterval = setInterval( loadFlights, 3000 );
 
             break;
           default: 
@@ -68,9 +70,12 @@
     });
   });
 
+  
+  var db = SQLite({ shortName: 'FlightBoard' });
+
   function loadFlights() {
-    var db = SQLite({ shortName: 'FlightBoard' });
-    db.select('Flights', '*', null, { order: 'flightDeparture DESC' }, function (results) { 
+    
+    db.select('Flights', '*', null, { order: 'flightDeparture ASC' }, function (results) { 
       document.getElementById('flight-table-body').innerHTML = " ";
       var x; for(x=0; x<results.rows.length; x++) {
         var item = results.rows.item(x);
@@ -86,8 +91,10 @@
             '<td class=""><label class="route">' + item['flightRoute'] + '</label></td>' +
             '<td class=""><label class="aircraft">' + item['flightNotes'] + '</label></td>' +
             '</tr>';
-      } 
+      }
     });
+
+    //console.log("Loaded flights");
   }
 
   function loadWeather() {
@@ -100,6 +107,8 @@
     $("#MRLB .taf").load("../../assets/php/taf.php?icao=MRLB");
     $("#MRLM .metar").load("../../assets/php/metar.php?icao=MRLM");
     $("#MRLM .taf").load("../../assets/php/taf.php?icao=MRLM");
+
+    //console.log("Loaded weather");
   }
 
   //Function to switch tabs
