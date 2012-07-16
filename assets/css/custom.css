@@ -36,6 +36,8 @@ text-indent: -9999px;
 }
 
 
+.input-half {width: 128px; }
+.input-third {width: 166px; }
 
 
 /* Datepicker */

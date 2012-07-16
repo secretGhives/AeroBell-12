@@ -79,6 +79,7 @@
         </tr>
       </thead>
       <tbody id="flight-table-body">
+        <!-- 
         <tr class="departed">
         	<td><button class="remove-flight"><i class="icon-trash"></i></button></td>
           <td class="first">
@@ -99,6 +100,7 @@
           <td><label class="pax">2</label></td>
           <td><label class="remarks">Expected wait 3+ hrs</label></td>
         </tr>
+        -->
       </tbody>
     </table>
   </div><!-- ADMIN FLIGHT BOARD ENDS HERE -->
@@ -109,68 +111,47 @@
     <section id="form" class="form-vertical">
   	  <fieldset>
   	    <div class="control-group">
-  	      <label class="control-label" for="nf-date">Date</label>
   	      <div class="controls">
-  	        <input type="text" class="input-medium" id="nf-date" placeholder="Flight date" data-datepicker="datepicker">
-  	      </div>
-  	    </div>
+  	        <input type="text" class="input-small" id="nf-date" placeholder="When?" data-datepicker="datepicker">
 
-  	    <div class="control-group">
-  	      <label class="control-label" for="nf-aircraft">Aircraft</label>
-  	      <div class="controls">
-            <input type="text" class="input-medium" id="nf-aircraft" placeholder="Which aircraft?" data-provide="typeahead" data-items="7" data-source="[&quot;TI-QWE&quot;,&quot;TI-WER&quot;,&quot;TI-ERT&quot;,&quot;TI-RTY&quot;,&quot;TI-TYU&quot;,&quot;TI-BAW&quot;]">
-  	      </div>
-  	    </div>
-
-  	    <div class="control-group">
-  	      <label class="control-label" for="nf-date">Departure/Arrival</label>
-  	      <div class="controls">
-  	        <input type="text" class="input-small" id="nf-departure" placeholder="Depart">
-  	        <input type="text" class="input-small" id="nf-arrival" placeholder="Arrive">
-  	      </div>
-  	    </div>
-
-  	    <div class="control-group">
-  	      <label class="control-label" for="nf-pilot">Pilot</label>
-  	      <div class="controls">
-  	        <input type="text" class="input-xlarge" id="nf-pilot" placeholder="Who is flying?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]" maxlength="10">
-  	      </div>
-  	    </div>
-
-  	    <div class="control-group">
-  	      <label class="control-label" for="nf-pilot">Co-Pilot</label>
-  	      <div class="controls">
-  	        <input type="text" class="input-xlarge" id="nf-copilot" placeholder="Who is co-pilot?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]" maxlength="10">
-  	      </div>
-  	    </div>
-
-  	    <div class="control-group">
-  	      <label class="control-label" for="nf-pax">Passengers</label>
-  	      <div class="controls">
-  	        <input type="number" class="input-medium" id="nf-pax" placeholder="How many?">
-  	      </div>
-  	    </div>
-
-  	    <div class="control-group">
-  	      <label class="control-label" for="nf-route">Route</label>
-  	      <div class="controls">
-  	        <input type="text" class="input-xlarge" id="nf-route" placeholder="MRPV-MROC-MRLB-MRLM-MRPV">
-  	      </div>
-  	    </div>
-
-  	    <div class="control-group">
-  	      <label class="control-label" for="textarea">Notes</label>
-  	      <div class="controls">
-  	        <textarea class="input-xlarge" id="nf-notes" rows="3" placeholder="Keep it short"></textarea>
-  	      </div>
-  	    </div>
-
-        <div class="control-group">
-          <label class="control-label" for="nf-status">Status</label>
-          <div class="controls">
-            <input type="text" class="input-medium" id="nf-status" placeholder="Status of the flight" data-provide="typeahead" data-items="4" data-source="[&quot;pending&quot;,&quot;departed&quot;,&quot;on-time&quot;,&quot;arrived&quot;,&quot;delayed&quot;,&quot;canceled&quot;]" maxlength="10">
+            <input type="text" class="input-third" id="nf-status" placeholder="Flight status" data-provide="typeahead" data-items="4" data-source="[&quot;pending&quot;,&quot;departed&quot;,&quot;on-time&quot;,&quot;arrived&quot;,&quot;delayed&quot;,&quot;canceled&quot;]" maxlength="10">
           </div>
-        </div>
+  	    </div>
+
+  	    <div class="control-group">
+  	      <div class="controls">
+            <input type="text" class="input-third" id="nf-aircraft" placeholder="Which aircraft?" data-provide="typeahead" data-items="7" data-source="[&quot;TI-QWE&quot;,&quot;TI-WER&quot;,&quot;TI-ERT&quot;,&quot;TI-RTY&quot;,&quot;TI-TYU&quot;,&quot;TI-BAW&quot;]">
+
+            <input type="number" class="input-small" id="nf-pax" placeholder="Pax?">
+  	      </div>
+  	    </div>
+
+  	    <div class="control-group">
+  	      <div class="controls">
+  	        <input type="text" class="input-half" id="nf-departure" placeholder="Depart">
+  	        <input type="text" class="input-half" id="nf-arrival" placeholder="Arrive">
+  	      </div>
+  	    </div>
+
+  	    <div class="control-group">
+  	      <div class="controls">
+  	        <input type="text" class="input-half" id="nf-pilot" placeholder="Pilot?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]" maxlength="10">
+
+  	        <input type="text" class="input-half" id="nf-copilot" placeholder="Co-pilot?" data-provide="typeahead" data-items="4" data-source="[&quot;ASWAFFORD&quot;,&quot;AKUZENKOV&quot;,&quot;JLEIVA&quot;,&quot;JPISARO&quot;]" maxlength="10">
+  	      </div>
+  	    </div>
+
+  	    <div class="control-group">
+  	      <div class="controls">
+  	        <input type="text" class="input-xlarge" id="nf-route" placeholder="Route: MRPV-MROC-MRLB-MRLM-MRPV">
+  	      </div>
+  	    </div>
+
+  	    <div class="control-group">
+  	      <div class="controls">
+  	        <textarea class="input-xlarge" id="nf-notes" rows="3" placeholder="Notes: Keep it short"></textarea>
+  	      </div>
+  	    </div>
 
   	    <div class="form-actions">
           <button id="btn-insert-flight" class="btn btn-success" onclick="insertRecord()">Insert</button>
